@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Secret Server Clipboard Utility: Options</title>
+<script type="text/javascript" src="storage.js"></script>
+<script type="text/javascript" src= "options.js"></script>
+<style type="text/css">
+    body
+    {
+        background-color: #DEDFE1;
+        margin: 0;
+        font-family: Verdana,Arial,serif;
+        font-size: 10pt;
+    }
+    .ssLogo
+    {
+        position: absolute;
+        left: 12px;
+        top: -33px;
+        z-index: 100;
+    }
+    .thycoticLogo
+    {
+        position: absolute;
+        right: 3px;
+        top: -26px;
+        z-index: 100;
+    }
+    header
+    {
+        z-index: 99;
+        height: 40px;
+        margin-top: 2px;
+        position: absolute;
+        top: 31px;
+        width: 100%;
+        background-color: gray;
+    }
+
+    #version
+    {
+        color: #FFF;
+        font-size: 10pt;
+        text-align: right;
+        margin-right: 15px;
+        margin-top: 10px;
+    }
+
+    #body
+    {
+        margin: 75px 15px 40px;
+    }
+
+    .panel
+    {
+        padding: 15px;
+    }
+
+    .panel .panelHeader
+    {
+        -webkit-border-top-right-radius: 15px;
+        -webkit-border-top-left-radius: 15px;
+        background-color: gray;
+        font-weight: bold;
+        color: #FFF;
+        padding: 10px;
+        border-top: 1px solid #000;
+        border-right: 1px solid #000;
+        border-left: 1px solid #000;
+    }
+
+    .panel .panelBody
+    {
+        background-color: #FFF;
+        border-right: 1px solid #000;
+        border-left: 1px solid #000;
+        padding: 15px;
+    }
+
+    .panel .panelBody div *
+    {
+        margin-bottom: 5px;
+    }
+
+    .panel .panelFooter
+    {
+        padding: 10px;
+        background-color: #AAA;
+        border-bottom: 1px solid #000;
+        border-right: 1px solid #000;
+        border-left: 1px solid #000;
+    }
+
+    footer
+    {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #000;
+        color: #FFF;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    #copy
+    {
+        float: right;
+        margin: 15px 0;
+    }
+
+    #help
+    {
+        float: left;
+        margin: 15px 0;
+    }
+
+    #help a
+    {
+        color: #FFF;
+    }
+    #alert
+    {
+        border: 1px solid green;
+        background-color: #90ee90;
+        color: green;
+        padding: 5px;
+        margin-top: 80px;
+        margin-left: 15px;
+        margin-right: 15px;
+        opacity: 0;
+        -webkit-transition: opacity .15s ease-in-out;
+    }
+
+    #alert.visible
+    {
+        opacity: 1;
+        -webkit-transition: opacity .15s ease-in-out;
+    }
+</style>
+</head>
+<body>
+<header>
+    <img class="ssLogo" src="ssdisk.png" title="Secret Server Logo" alt="Secret Server Logo" />
+    <a href="http://www.thycotic.com" target="_blank">
+        <img class="thycoticLogo" src="thycotic.png" title="Thycotic Logo" alt="Thycotic Logo" />
+    </a>
+    <div id="version">&nbsp;</div>
+</header>
+<div id="body">
+    <div id="alert">Settings have been saved.</div>
+    <form id="settingsForm">
+        <div class="panel">
+            <div class="panelHeader">Secret Server Clipboard Options</div>
+            <div class="panelBody">
+                <div>
+                    <input type="checkbox" id="clearPasswordOnExitCheckBox" />
+                    <label for="clearPasswordOnExitCheckBox" title="Automatically remove the password from the clipboard when the brower tab is closed.">Clear Password On Exit</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="clearEnableAutoCheckBox" />
+                    <label for="clearEnableAutoCheckBox" title="Automatically remove the password from the clipboard when the browser tab is closed or after a given interval.">Automatically Clear After Interval</label>
+                    <div style="margin-left:30px">
+                        <input type="number" min="1" max="86400" id="clearAfterIntervalTextBox" required="required" />
+                        <label for="clearAfterIntervalTextBox" title="The number of seconds to wait before the password is automatically removed from the clipboard.">Interval (in seconds)</label>
+                    </div>
+                </div>
+            </div>
+            <div class="panelFooter">
+                <input type="submit" id="saveSettingsButton" value="Save Changes" />
+            </div>
+        </div>
+    </form>
+</div>
+<footer>
+    <div id="copy">
+        Copyright &copy; Thycotic, <span id="year">&nbsp;</span>.
+    </div>
+    <div id="help">
+        <a href="http://updates.thycotic.net/links.ashx?ClipboardUtility" target="_blank">Get Help</a>
+        &#9830;
+        <a href="http://thycoticstatus.tumblr.com/" target="_blank">Status</a>
+    </div>
+</footer>
+</body>
+</html>

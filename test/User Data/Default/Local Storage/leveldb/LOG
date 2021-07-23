@@ -1,0 +1,6 @@
+2021/07/23-08:32:09.158 2130 Reusing MANIFEST C:\Users\MIMASARY\Desktop\AutologinPython\test\User Data\Default\Local Storage\leveldb/MANIFEST-000001
+2021/07/23-08:32:09.162 2130 Recovering log #127
+2021/07/23-08:32:09.163 2130 Reusing old log C:\Users\MIMASARY\Desktop\AutologinPython\test\User Data\Default\Local Storage\leveldb/000127.log 
+2021/07/23-08:32:49.720 2130 Level-0 table #131: started
+2021/07/23-08:32:49.739 2130 Level-0 table #131: 49656 bytes OK
+2021/07/23-08:32:49.741 2130 Delete type=0 #127

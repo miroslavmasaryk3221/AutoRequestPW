@@ -1,0 +1,1 @@
+(gc -raw a.txt) -replace"[^ -x7e]","">b.txt

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Element Locator</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/toggle-button.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id='locatorPopupDiv' class='locatorPopupDiv'>
+        <div id="header">
+            <p>Element Locator</p>
+            <p id="lastUpdate">Last Update: <span></span></p>
+
+            <div id="buttonsDiv">
+                <div id='deleteDiv' class="popup_button" title="Delete">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </div>
+                <div id='hideDiv' class="popup_button" title="Hide">
+                    <i class="fa fa-minus" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+
+        <div id="elementsTable">
+            <table id="elementsTableHeader" class="table table-sm table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Tag</th>
+                        <th>XPath</th>
+                        <th>CssSelector</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+
+            <table id="elementsTableBody" class="table table-sm table-hover">
+                <tbody id='paths'>
+                    <!-- <tr>
+                    <th>title</th>
+                    <td>value 1</td>
+                    <td>value 1</td>
+                    <td>value 1</td>
+                    <td><input type="text"></td>
+                    <td>value 1</td>
+                </tr> -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="noElementsFoundDiv">
+            <p>No elements found for this page.</p>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div id="switchsDiv">
+            <label id="markAllCheckbox_label" class="switch switch-left-right">
+                <input id="markAllCheckbox" class="switch-input" type="checkbox"/>
+                <span class="switch-label" data-on="Mark All" data-off="Mark All"></span> 
+                <span class="switch-handle"></span> 
+            </label>
+            <label class="switch switch-left-right">
+                <input id="turnOnOffCheckbox" class="switch-input" type="checkbox"/>
+                <span class="switch-label" data-on="On" data-off="Off"></span> 
+                <span class="switch-handle"></span> 
+            </label>
+        </div>
+    </div>
+
+    <!-- hidden element -->
+    <table class="detailsTableHidden table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Attribute</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody id='detailsRows'>
+            <!-- <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr> -->
+        </tbody>
+    </table>
+
+    <script src="scripts/jquery-3.2.1.slim.min.js"></script>
+    <script src="scripts/general.js"></script>
+    <script src="scripts/functions.js"></script>
+    <script src="scripts/events.js"></script>
+    <script src="scripts/popper.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+</body>
+
+</html>

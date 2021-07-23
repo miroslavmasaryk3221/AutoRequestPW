@@ -1,0 +1,9 @@
+[5000:15716:0429/164946.842:ERROR:device_event_log_impl.cc(214)] [16:49:46.842] Bluetooth: bluetooth_adapter_winrt.cc:712 GetBluetoothAdapterStaticsActivationFactory failed: Class not registered (0x80040154)
+[5000:15716:0429/164946.846:ERROR:device_event_log_impl.cc(214)] [16:49:46.846] USB: usb_device_handle_win.cc:1054 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[5000:15716:0429/164946.848:ERROR:device_event_log_impl.cc(214)] [16:49:46.848] USB: usb_device_handle_win.cc:1054 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[5000:15716:0429/164946.869:ERROR:device_event_log_impl.cc(214)] [16:49:46.869] FIDO: webauthn_api.cc:54 Windows WebAuthn API failed to load
+[5000:15716:0429/165003.729:WARNING:CONSOLE(1)] "method `getProspectiveUILanguageName_` not defined", source: chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js (1)
+[5000:15716:0429/165029.861:INFO:CONSOLE(0)] "Error with Feature-Policy header: Unrecognized feature: 'speaker'.", source:  (0)
+[5000:15716:0429/165059.391:WARNING:CONSOLE(1)] "method `getProspectiveUILanguageName_` not defined", source: chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js (1)
+[5000:15716:0429/165101.860:WARNING:CONSOLE(1)] "method `getProspectiveUILanguageName_` not defined", source: chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js (1)
+[5000:15716:0429/165121.720:WARNING:pref_notifier_impl.cc(40)] Pref observer for media_router.cast_allow_all_ips found at shutdown.

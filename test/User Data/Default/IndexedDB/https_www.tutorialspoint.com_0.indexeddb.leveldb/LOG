@@ -1,0 +1,6 @@
+2021/05/12-11:00:39.317 468c Creating DB C:\Users\MIMASARY\desktop\AutologinPython\test\User Data\Default\IndexedDB\https_www.tutorialspoint.com_0.indexeddb.leveldb since it was missing.
+2021/05/12-11:00:39.349 468c Reusing MANIFEST C:\Users\MIMASARY\desktop\AutologinPython\test\User Data\Default\IndexedDB\https_www.tutorialspoint.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/05/12-11:00:41.604 468c Level-0 table #5: started
+2021/05/12-11:00:41.611 468c Level-0 table #5: 354 bytes OK
+2021/05/12-11:00:41.613 468c Delete type=0 #3
+2021/05/12-11:00:41.616 468c Manual compaction at level-0 from (begin) .. (end); will stop at (end)

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="index.css">
+  </head>
+
+  <body>
+    <template class="ignore-elements">
+      <div class="grid-item" data-cmd="open-app" tabindex="0">
+        <div class="tools">
+          <input type="button" data-cmd="open-settings">
+          <input type="button" data-cmd="open-home">
+        </div>
+        <span class="number" data-number="-1" title="Use number keys to select items"></span>
+        <div class="spacer"></div>
+        <div class="title"></div>
+      </div>
+    </template>
+    <div id="no-app" class="grid-item ignore-elements">
+      <span class="number"></span>
+      <b>Boo... You have no applications :-(</b>
+      <br>
+      <span>Want to browse the <a target="_blank" href="https://chrome.google.com/webstore/category/apps">Chrome Web Store</a> to look at the collections?</span>
+    </div>
+    <script src="Sortable.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

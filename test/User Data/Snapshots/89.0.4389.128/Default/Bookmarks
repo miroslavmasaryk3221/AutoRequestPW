@@ -1,0 +1,117 @@
+{
+   "checksum": "3c30cac95f5f194f701042f680fdb0c0",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13260453446131968",
+            "guid": "47bf8ca9-17d5-463d-be17-f6b931337675",
+            "id": "23",
+            "name": "Secret Server",
+            "type": "url",
+            "url": "https://otispam.secretservercloud.com/OpenIdConnectLogin.aspx"
+         }, {
+            "date_added": "13237889737541878",
+            "guid": "74ea46c4-5fd8-40c4-af75-617825cc792f",
+            "id": "7",
+            "name": "SafeNet Trusted Access – Self-Service",
+            "type": "url",
+            "url": "https://ss.safenet-inc.com/blackshieldss/O/WYZAP2LC54/index.aspx"
+         }, {
+            "date_added": "13235478840783785",
+            "guid": "cf1765f5-48cf-48fb-a3f0-ee5717fb5f77",
+            "id": "5",
+            "name": "Service Manager: Login",
+            "type": "url",
+            "url": "https://smweb.telekom.de/sm-prod/index.do?"
+         }, {
+            "date_added": "13238056144133039",
+            "guid": "51ac0657-01bc-4a0d-96e5-f9c8a536ae6d",
+            "id": "9",
+            "name": "IAN OTISFrankfurt",
+            "type": "url",
+            "url": "http://otis-def2-win02.js.ts-ian.net/Citrix/StoreWeb/"
+         }, {
+            "date_added": "13239095042108713",
+            "guid": "67308bdc-6425-4f80-95d3-e821690429fa",
+            "id": "11",
+            "name": "LOGIN",
+            "type": "url",
+            "url": "javascript:(function(){   document.getElementById('username').value='mimasary';   document.getElementById('password').value='Makarov981118+';   document.forms.loginForm.submit.click(); })();"
+         }, {
+            "date_added": "13242118912906049",
+            "guid": "04bc5678-71a5-438b-8cc0-a8653418de8f",
+            "id": "13",
+            "name": "Service Manager",
+            "type": "url",
+            "url": "https://smweb.telekom.de/sm-prod/index.do"
+         }, {
+            "date_added": "13242831138828863",
+            "guid": "a9fb5106-9144-4f8e-bdef-d656769ebfa7",
+            "id": "15",
+            "name": "Firewall profile does not switch to Domain when you use a third-party VPN",
+            "type": "url",
+            "url": "https://support.microsoft.com/en-us/help/4550028/firewall-profile-does-not-switch-to-domain-when-using-third-party-vpn"
+         }, {
+            "date_added": "13250007976080920",
+            "guid": "0df2adb2-0fec-4dd3-bbe8-46722443a02f",
+            "id": "17",
+            "name": "Service Manager",
+            "type": "url",
+            "url": "https://10.150.114.34/sm-prod/index.do"
+         }, {
+            "date_added": "13258567483697026",
+            "guid": "2dd708cd-0aca-4ba4-8274-e29cad99ddce",
+            "id": "19",
+            "name": "Use PowerShell to obtain SQL Server database sizes | Scripting Blog",
+            "type": "url",
+            "url": "https://devblogs.microsoft.com/scripting/use-powershell-to-obtain-sql-server-database-sizes/"
+         }, {
+            "date_added": "13260028986791642",
+            "guid": "99016b01-2462-4c19-bb8f-24ae7f6d5f3c",
+            "id": "21",
+            "name": "Trying to install MSP file",
+            "type": "url",
+            "url": "https://social.technet.microsoft.com/Forums/en-US/8747acf6-8e44-47f9-8469-2c86ebe368db/trying-to-install-msp-file?forum=winserverpowershell"
+         }, {
+            "date_added": "13261087878056818",
+            "guid": "fb89e929-e7f1-4ed3-b030-5096cc7ecb8f",
+            "id": "25",
+            "name": "",
+            "type": "url",
+            "url": "file:///C:/Users/MIMASARY/Downloads/jd-salinger-kto-chyta---v-z--ite.pdf"
+         }, {
+            "date_added": "13262711399939758",
+            "guid": "3c7bd107-1490-40dd-a252-c3fa9324611d",
+            "id": "27",
+            "name": "[SOLVED] Silently Install Patches Remotely and Reboot - PowerShell - Spiceworks",
+            "type": "url",
+            "url": "https://community.spiceworks.com/topic/2054098-silently-install-patches-remotely-and-reboot"
+         } ],
+         "date_added": "13232142501647550",
+         "date_modified": "13262711399939758",
+         "guid": "00000000-0000-4000-a000-000000000002",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13232142501647581",
+         "date_modified": "0",
+         "guid": "00000000-0000-4000-a000-000000000003",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13232142501647585",
+         "date_modified": "0",
+         "guid": "00000000-0000-4000-a000-000000000004",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

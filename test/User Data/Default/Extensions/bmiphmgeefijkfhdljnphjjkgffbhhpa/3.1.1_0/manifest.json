@@ -1,0 +1,41 @@
+{
+   "author": "ASIC HU",
+   "background": {
+      "page": "common/background.html",
+      "persistent": true
+   },
+   "browser_action": {
+      "default_icon": "common/sm128.png",
+      "default_title": "SMartease - Click to open SM9"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "common/addPlugin.js", "common/plugins/Events.js", "common/plugins/SMweb.js", "common/plugins/CmdBar.js", "common/plugins/LoadScripts.js", "common/plugins/InputToTextarea.js", "common/plugins/TicketSearch.js", "common/plugins/ActionDropdown.js", "common/plugins/CloseTabs.js", "common/plugins/CIActions.js", "common/plugins/AutoRefresh.js", "common/plugins/TableMagnify.js", "common/plugins/MagnifyTextarea.js", "common/plugins/SwitchTabs.js", "common/plugins/ChangeTaskActions.js", "common/plugins/ListExport.js", "common/plugins/SenderAGWorker.js", "common/plugins/ActionPopupManager.js", "common/plugins/Misc.js", "common/injectPlugins.js" ],
+      "matches": [ "https://smweb.telekom.de/*", "http://smweb-sit.telekom.de/sm-sit/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "css": [ "common/stylesheets/smPopup.css", "common/stylesheets/global.css", "common/stylesheets/sm9.css" ],
+      "matches": [ "https://smweb.telekom.de/*", "http://smweb-sit.telekom.de/sm-sit/*" ],
+      "run_at": "document_end"
+   } ],
+   "description": "SMartease - Work smarter in SM9, handle tickets with ease!",
+   "externally_connectable": {
+      "accepts_tls_channel_id": false,
+      "matches": [ "https://smweb.telekom.de/*", "http://smweb-sit.telekom.de/sm-sit/*" ]
+   },
+   "icons": {
+      "128": "common/sm128.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmpyjICzu1sTNvhgawPSrqDHu1oKIci93ggUPcSC78h5UiYQKfxHRQP4R88D2puH4uc3iF/ro2oNvn+s0sUsGkU14Uk8606i4g6P6q6TRfUo1bzaKxwwbcBYBUdg5putU/7g27pVvR6isUAs5p/mCOHXuW7aN3QA5PluPKAejIhBeiy3k9KrIcnTTjrEBngg5+C+N+hrql1htYXhRU7ssMFBkYn/mAYk64eEjRZmGwdCFEgkIt7pp9xgHMUhg2sO5nTNnx+SJitCSb+SDFxljpLUkiNJW1+9PpLll+c4jVHZqqBVX7VQixrfn+eZ1RydxLTGl/cpOyqYnj/mzK7PWNQIDAQAB",
+   "manifest_version": 2,
+   "name": "SMartease",
+   "options_ui": {
+      "open_in_tab": true,
+      "page": "common/options.html"
+   },
+   "permissions": [ "storage", "https://smweb.telekom.de/*", "http://smweb-sit.telekom.de/sm-sit/*", "activeTab", "clipboardWrite", "contextMenus" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "3.1.1",
+   "web_accessible_resources": [ "common/*.css", "common/plugins/*", "common/classes/*" ]
+}

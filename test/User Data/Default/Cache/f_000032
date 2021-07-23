@@ -1,0 +1,995 @@
+Type.registerNamespace('Thycotic.webapp.Web.ajax');
+Thycotic.webapp.Web.ajax.AjaxServices=function() {
+Thycotic.webapp.Web.ajax.AjaxServices.initializeBase(this);
+this._timeout = 0;
+this._userContext = null;
+this._succeeded = null;
+this._failed = null;
+}
+Thycotic.webapp.Web.ajax.AjaxServices.prototype={
+_get_path:function() {
+ var p = this.get_path();
+ if (p) return p;
+ else return Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.get_path();},
+SetPowershellScriptActiveValue:function(powershellScriptId,isActive,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetPowershellScriptActiveValue',false,{powershellScriptId:powershellScriptId,isActive:isActive},succeededCallback,failedCallback,userContext); },
+GetSecretItemValues:function(secretId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSecretItemValues',false,{secretId:secretId},succeededCallback,failedCallback,userContext); },
+TestPowershellScript:function(scriptId,siteId,username,password,domain,scriptArgs,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'TestPowershellScript',false,{scriptId:scriptId,siteId:siteId,username:username,password:password,domain:domain,scriptArgs:scriptArgs},succeededCallback,failedCallback,userContext); },
+TestSqlScript:function(scriptId,siteId,server,database,username,password,port,domain,impersonate,scriptArgs,odbcConnectionStringArgs,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'TestSqlScript',false,{scriptId:scriptId,siteId:siteId,server:server,database:database,username:username,password:password,port:port,domain:domain,impersonate:impersonate,scriptArgs:scriptArgs,odbcConnectionStringArgs:odbcConnectionStringArgs},succeededCallback,failedCallback,userContext); },
+TestSSHScript:function(scriptId,siteId,server,port,username,password,scriptArgs,serverKeyDigest,privateKeyBytes,privateKeyPassphrase,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'TestSSHScript',false,{scriptId:scriptId,siteId:siteId,server:server,port:port,username:username,password:password,scriptArgs:scriptArgs,serverKeyDigest:serverKeyDigest,privateKeyBytes:privateKeyBytes,privateKeyPassphrase:privateKeyPassphrase},succeededCallback,failedCallback,userContext); },
+GetAllScriptDependencyParameters:function(secretDependencyChangerId,secretDependencyId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetAllScriptDependencyParameters',false,{secretDependencyChangerId:secretDependencyChangerId,secretDependencyId:secretDependencyId},succeededCallback,failedCallback,userContext); },
+GetScriptDependencyParameters:function(scriptId,secretDependencyId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetScriptDependencyParameters',false,{scriptId:scriptId,secretDependencyId:secretDependencyId},succeededCallback,failedCallback,userContext); },
+GetDependencyChangerScriptParameters:function(secretDependencyChangerId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetDependencyChangerScriptParameters',false,{secretDependencyChangerId:secretDependencyChangerId},succeededCallback,failedCallback,userContext); },
+CreateDependencyChangerScriptParametersForScript:function(secretDependencyChangerId,scriptConditionType,scriptId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'CreateDependencyChangerScriptParametersForScript',false,{secretDependencyChangerId:secretDependencyChangerId,scriptConditionType:scriptConditionType,scriptId:scriptId},succeededCallback,failedCallback,userContext); },
+GetScriptHookParameters:function(scriptId,secretHookId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetScriptHookParameters',false,{scriptId:scriptId,secretHookId:secretHookId},succeededCallback,failedCallback,userContext); },
+SaveFolder:function(folderName,parentFolderId,folderTypeId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveFolder',false,{folderName:folderName,parentFolderId:parentFolderId,folderTypeId:folderTypeId},succeededCallback,failedCallback,userContext); },
+GetSecretHooks:function(secretId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSecretHooks',false,{secretId:secretId},succeededCallback,failedCallback,userContext); },
+SaveSecretHook:function(secretHook,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveSecretHook',false,{secretHook:secretHook},succeededCallback,failedCallback,userContext); },
+DeleteSecretHook:function(secretHook,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DeleteSecretHook',false,{secretHook:secretHook},succeededCallback,failedCallback,userContext); },
+FindUsers:function(rows,page,sortOrderColumn,orderDirection,searchTerm,showInactive,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'FindUsers',false,{rows:rows,page:page,sortOrderColumn:sortOrderColumn,orderDirection:orderDirection,searchTerm:searchTerm,showInactive:showInactive},succeededCallback,failedCallback,userContext); },
+FindApplicationAccounts:function(rows,page,sortOrderColumn,orderDirection,searchTerm,showInactive,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'FindApplicationAccounts',false,{rows:rows,page:page,sortOrderColumn:sortOrderColumn,orderDirection:orderDirection,searchTerm:searchTerm,showInactive:showInactive},succeededCallback,failedCallback,userContext); },
+DependencyImportRuleSave:function(dependencyImportRule,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DependencyImportRuleSave',false,{dependencyImportRule:dependencyImportRule},succeededCallback,failedCallback,userContext); },
+GetDependencyImportRules:function(showInactive,pageNumber,pageSize,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetDependencyImportRules',false,{showInactive:showInactive,pageNumber:pageNumber,pageSize:pageSize},succeededCallback,failedCallback,userContext); },
+DependencyImportRuleDeactivate:function(dependencyImportRuleId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DependencyImportRuleDeactivate',false,{dependencyImportRuleId:dependencyImportRuleId},succeededCallback,failedCallback,userContext); },
+SetUseCustomLogo:function(useCustom,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetUseCustomLogo',false,{useCustom:useCustom},succeededCallback,failedCallback,userContext); },
+SearchSecretSessions:function(searchString,status,dayRange,pageSize,pageIndex,orderBy,orderDir,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SearchSecretSessions',false,{searchString:searchString,status:status,dayRange:dayRange,pageSize:pageSize,pageIndex:pageIndex,orderBy:orderBy,orderDir:orderDir},succeededCallback,failedCallback,userContext); },
+SearchAdminChallenges:function(completed,searchString,type,dayRange,pageSize,pageIndex,orderBy,orderDir,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SearchAdminChallenges',false,{completed:completed,searchString:searchString,type:type,dayRange:dayRange,pageSize:pageSize,pageIndex:pageIndex,orderBy:orderBy,orderDir:orderDir},succeededCallback,failedCallback,userContext); },
+CompleteAdminChallenge:function(securityAnalyticsChallengeId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'CompleteAdminChallenge',false,{securityAnalyticsChallengeId:securityAnalyticsChallengeId},succeededCallback,failedCallback,userContext); },
+TerminateSecretSession:function(sessionId,secretId,userId,action,message,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'TerminateSecretSession',false,{sessionId:sessionId,secretId:secretId,userId:userId,action:action,message:message},succeededCallback,failedCallback,userContext); },
+GetActiveSecretSessions:function(secretId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetActiveSecretSessions',false,{secretId:secretId},succeededCallback,failedCallback,userContext); },
+GetSessionFrames:function(sessionId,topImageIdRecovered,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSessionFrames',false,{sessionId:sessionId,topImageIdRecovered:topImageIdRecovered},succeededCallback,failedCallback,userContext); },
+GetSSHLoginCredentials:function(secretId,machine,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSSHLoginCredentials',false,{secretId:secretId,machine:machine},succeededCallback,failedCallback,userContext); },
+GetProxyCredentials:function(secretId,machine,siteId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetProxyCredentials',false,{secretId:secretId,machine:machine,siteId:siteId},succeededCallback,failedCallback,userContext); },
+DoBulkOperationByReportId:function(bulkOperation,reportId,parameters,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DoBulkOperationByReportId',false,{bulkOperation:bulkOperation,reportId:reportId,parameters:parameters},succeededCallback,failedCallback,userContext); },
+TestDiscoveryScanner:function(testInput,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'TestDiscoveryScanner',false,{testInput:testInput},succeededCallback,failedCallback,userContext); },
+ValidateOverlappingHostRangesForSingleDiscoverySource:function(hostRanges,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ValidateOverlappingHostRangesForSingleDiscoverySource',false,{hostRanges:hostRanges},succeededCallback,failedCallback,userContext); },
+DoHostRangesOverlapWithSimiliarDiscoverySources:function(hostRanges,discoverySourceId,discoveryScannerId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DoHostRangesOverlapWithSimiliarDiscoverySources',false,{hostRanges:hostRanges,discoverySourceId:discoverySourceId,discoveryScannerId:discoveryScannerId},succeededCallback,failedCallback,userContext); },
+GetLogsForDependency:function(secretDependencyId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetLogsForDependency',false,{secretDependencyId:secretDependencyId},succeededCallback,failedCallback,userContext); },
+DeleteExtendedMapping:function(secretTypeId,extendedTypeId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DeleteExtendedMapping',false,{secretTypeId:secretTypeId,extendedTypeId:extendedTypeId},succeededCallback,failedCallback,userContext); },
+SaveExtendedMapping:function(secretTypeId,extendedTypeId,fieldMappings,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveExtendedMapping',false,{secretTypeId:secretTypeId,extendedTypeId:extendedTypeId,fieldMappings:fieldMappings},succeededCallback,failedCallback,userContext); },
+ApproveRequest:function(secretAccessRequestId,responseComment,startDate,expirationDate,isOverride,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ApproveRequest',false,{secretAccessRequestId:secretAccessRequestId,responseComment:responseComment,startDate:startDate,expirationDate:expirationDate,isOverride:isOverride},succeededCallback,failedCallback,userContext); },
+DenyRequest:function(secretAccessRequestId,responseComment,isOverride,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DenyRequest',false,{secretAccessRequestId:secretAccessRequestId,responseComment:responseComment,isOverride:isOverride},succeededCallback,failedCallback,userContext); },
+RequestAccess:function(requestComment,ticketSystemId,ticketNumberEntered,secretId,startDate,endDate,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'RequestAccess',false,{requestComment:requestComment,ticketSystemId:ticketSystemId,ticketNumberEntered:ticketNumberEntered,secretId:secretId,startDate:startDate,endDate:endDate},succeededCallback,failedCallback,userContext); },
+TestTicketSystem:function(ticketSystemId,ticketNumber,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'TestTicketSystem',false,{ticketSystemId:ticketSystemId,ticketNumber:ticketNumber},succeededCallback,failedCallback,userContext); },
+GetAllActiveUsernamePasswordExtendedTypes:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetAllActiveUsernamePasswordExtendedTypes',false,{},succeededCallback,failedCallback,userContext); },
+GetAllActiveUsernamePasswordExtendedTypesAndRPCTemplates:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetAllActiveUsernamePasswordExtendedTypesAndRPCTemplates',false,{},succeededCallback,failedCallback,userContext); },
+GetValidTemplatesForSiteEditSecretPicker:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetValidTemplatesForSiteEditSecretPicker',false,{},succeededCallback,failedCallback,userContext); },
+GetPasswordProviderList:function(passwordTypeId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetPasswordProviderList',false,{passwordTypeId:passwordTypeId},succeededCallback,failedCallback,userContext); },
+GetSiteProcessingInfo:function(siteId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSiteProcessingInfo',false,{siteId:siteId},succeededCallback,failedCallback,userContext); },
+ValidateForEngineFailover:function(siteId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ValidateForEngineFailover',false,{siteId:siteId},succeededCallback,failedCallback,userContext); },
+GetNumDomainUsersByEnabledStatus:function(domainId,isEnabled,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetNumDomainUsersByEnabledStatus',false,{domainId:domainId,isEnabled:isEnabled},succeededCallback,failedCallback,userContext); },
+SecretSessionRequiresDualApproval:function(secretSessionId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SecretSessionRequiresDualApproval',false,{secretSessionId:secretSessionId},succeededCallback,failedCallback,userContext); },
+GetPasswordTypeSettings:function(passwordTypeId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetPasswordTypeSettings',false,{passwordTypeId:passwordTypeId},succeededCallback,failedCallback,userContext); },
+SavePasswordTypeSetting:function(passwordTypeSettingMap,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SavePasswordTypeSetting',false,{passwordTypeSettingMap:passwordTypeSettingMap},succeededCallback,failedCallback,userContext); },
+isThycoticOneEnabled:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'isThycoticOneEnabled',false,{},succeededCallback,failedCallback,userContext); },
+AssignEngines:function(manageEnginesInformations,siteConnectorId,heartbeatInterval,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'AssignEngines',false,{manageEnginesInformations:manageEnginesInformations,siteConnectorId:siteConnectorId,heartbeatInterval:heartbeatInterval},succeededCallback,failedCallback,userContext); },
+DeleteEngines:function(engineIds,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DeleteEngines',false,{engineIds:engineIds},succeededCallback,failedCallback,userContext); },
+FetchEngineLog:function(engineId,searchTerm,pageSize,currentPage,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'FetchEngineLog',false,{engineId:engineId,searchTerm:searchTerm,pageSize:pageSize,currentPage:currentPage},succeededCallback,failedCallback,userContext); },
+GetSiteConnectorCredentials:function(siteConnectorId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSiteConnectorCredentials',false,{siteConnectorId:siteConnectorId},succeededCallback,failedCallback,userContext); },
+TestSiteConnector:function(siteConnectorId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'TestSiteConnector',false,{siteConnectorId:siteConnectorId},succeededCallback,failedCallback,userContext); },
+TestSite:function(siteId,timeout,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'TestSite',false,{siteId:siteId,timeout:timeout},succeededCallback,failedCallback,userContext); },
+GetAllActiveForAccountByDependencyScanItemTemplate:function(scanItemTemplateId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetAllActiveForAccountByDependencyScanItemTemplate',false,{scanItemTemplateId:scanItemTemplateId},succeededCallback,failedCallback,userContext); },
+EnableIgnoreVersionMismatchOnUpgrade:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'EnableIgnoreVersionMismatchOnUpgrade',false,{},succeededCallback,failedCallback,userContext); },
+DisableIgnoreVersionMismatchOnUpgrade:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DisableIgnoreVersionMismatchOnUpgrade',false,{},succeededCallback,failedCallback,userContext); },
+FinishManualUpgrade:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'FinishManualUpgrade',false,{},succeededCallback,failedCallback,userContext); },
+GetSecretItemValue:function(secretItemId,isEditMode,auditAction,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSecretItemValue',false,{secretItemId:secretItemId,isEditMode:isEditMode,auditAction:auditAction},succeededCallback,failedCallback,userContext); },
+GetSecretItemPhoneticValue:function(secretItemId,isEditMode,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSecretItemPhoneticValue',false,{secretItemId:secretItemId,isEditMode:isEditMode},succeededCallback,failedCallback,userContext); },
+GeneratePasswordNewSecret:function(secretFieldId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GeneratePasswordNewSecret',false,{secretFieldId:secretFieldId},succeededCallback,failedCallback,userContext); },
+GeneratePassword:function(secretFieldId,secretId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GeneratePassword',false,{secretFieldId:secretFieldId,secretId:secretId},succeededCallback,failedCallback,userContext); },
+GeneratePasswordForRemotePasswordChange:function(secretTypeId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GeneratePasswordForRemotePasswordChange',false,{secretTypeId:secretTypeId},succeededCallback,failedCallback,userContext); },
+UpdateReportCategoryIndex:function(reportCategoryId,xIndex,yIndex,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'UpdateReportCategoryIndex',false,{reportCategoryId:reportCategoryId,xIndex:xIndex,yIndex:yIndex},succeededCallback,failedCallback,userContext); },
+UpdateCustomReport:function(customReportId,reportCategoryId,sortOrder,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'UpdateCustomReport',false,{customReportId:customReportId,reportCategoryId:reportCategoryId,sortOrder:sortOrder},succeededCallback,failedCallback,userContext); },
+DeleteReportCategory:function(reportCategoryId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DeleteReportCategory',false,{reportCategoryId:reportCategoryId},succeededCallback,failedCallback,userContext); },
+UpdateIsCollapsed:function(controlId,isCollapsed,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'UpdateIsCollapsed',false,{controlId:controlId,isCollapsed:isCollapsed},succeededCallback,failedCallback,userContext); },
+GetUsersForGroup:function(groupId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetUsersForGroup',false,{groupId:groupId},succeededCallback,failedCallback,userContext); },
+GetSecretListForSimpleSearch2:function(prefixText,count,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSecretListForSimpleSearch2',false,{prefixText:prefixText,count:count},succeededCallback,failedCallback,userContext); },
+SetLastSecretType:function(secretTypeId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetLastSecretType',false,{secretTypeId:secretTypeId},succeededCallback,failedCallback,userContext); },
+SetLastSelectedActiveValue:function(active,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetLastSelectedActiveValue',false,{active:active},succeededCallback,failedCallback,userContext); },
+SetLastSelectedSearchFolder:function(folderId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetLastSelectedSearchFolder',false,{folderId:folderId},succeededCallback,failedCallback,userContext); },
+GetContextHelpState:function(page,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetContextHelpState',false,{page:page},succeededCallback,failedCallback,userContext); },
+SetContextHelpState:function(page,isClosed,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetContextHelpState',false,{page:page,isClosed:isClosed},succeededCallback,failedCallback,userContext); },
+SetSearchSubfolders:function(includeSubfolders,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetSearchSubfolders',false,{includeSubfolders:includeSubfolders},succeededCallback,failedCallback,userContext); },
+ExportSecrets:function(folderId,includeFolderPath,includeChildFolders,includeTotpSettings,notes,useCSVFormat,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ExportSecrets',false,{folderId:folderId,includeFolderPath:includeFolderPath,includeChildFolders:includeChildFolders,includeTotpSettings:includeTotpSettings,notes:notes,useCSVFormat:useCSVFormat},succeededCallback,failedCallback,userContext); },
+CancelExportSecrets:function(taskIdentifier,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'CancelExportSecrets',false,{taskIdentifier:taskIdentifier},succeededCallback,failedCallback,userContext); },
+GetActiveUserByDomainCompletionList:function(prefixText,count,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetActiveUserByDomainCompletionList',false,{prefixText:prefixText,count:count},succeededCallback,failedCallback,userContext); },
+GetActiveGroupByDomainCompletionList:function(prefixText,count,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetActiveGroupByDomainCompletionList',false,{prefixText:prefixText,count:count},succeededCallback,failedCallback,userContext); },
+GetFoldersCompletionList:function(prefixText,count,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetFoldersCompletionList',false,{prefixText:prefixText,count:count},succeededCallback,failedCallback,userContext); },
+GetFoldersCompletionListWithId:function(prefixText,count,options,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetFoldersCompletionListWithId',false,{prefixText:prefixText,count:count,options:options},succeededCallback,failedCallback,userContext); },
+GetFoldersCompletionListWithIdNoFolderTypeFilter:function(prefixText,count,options,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetFoldersCompletionListWithIdNoFolderTypeFilter',false,{prefixText:prefixText,count:count,options:options},succeededCallback,failedCallback,userContext); },
+GetOUCompletionList:function(prefixText,count,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetOUCompletionList',false,{prefixText:prefixText,count:count},succeededCallback,failedCallback,userContext); },
+GetOUCompletionListExcludeNonAD:function(prefixText,count,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetOUCompletionListExcludeNonAD',false,{prefixText:prefixText,count:count},succeededCallback,failedCallback,userContext); },
+SetLastFolderType:function(folderTypeId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetLastFolderType',false,{folderTypeId:folderTypeId},succeededCallback,failedCallback,userContext); },
+GetLauncherImagePath:function(secretId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetLauncherImagePath',false,{secretId:secretId},succeededCallback,failedCallback,userContext); },
+GetSecretHeartbeatStatus:function(secretId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSecretHeartbeatStatus',false,{secretId:secretId},succeededCallback,failedCallback,userContext); },
+GetKeyReEncryptionProgress:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetKeyReEncryptionProgress',false,{},succeededCallback,failedCallback,userContext); },
+GetHSMKeyEncryptionProgress:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetHSMKeyEncryptionProgress',false,{},succeededCallback,failedCallback,userContext); },
+TurnReadOnlyModeOnForAllNodes:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'TurnReadOnlyModeOnForAllNodes',false,{},succeededCallback,failedCallback,userContext); },
+TurnReadOnlyModeOnForAllNodesOnUpgrade:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'TurnReadOnlyModeOnForAllNodesOnUpgrade',false,{},succeededCallback,failedCallback,userContext); },
+TurnReadOnlyModeOffForAllNodesOnUpgrade:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'TurnReadOnlyModeOffForAllNodesOnUpgrade',false,{},succeededCallback,failedCallback,userContext); },
+GetIsReadOnlyModeEnabledForAllNodes:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetIsReadOnlyModeEnabledForAllNodes',false,{},succeededCallback,failedCallback,userContext); },
+ToggleReadOnlyMode:function(nodeId,shouldBeInReadOnlyMode,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ToggleReadOnlyMode',false,{nodeId:nodeId,shouldBeInReadOnlyMode:shouldBeInReadOnlyMode},succeededCallback,failedCallback,userContext); },
+ToggleInCluster:function(nodeId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ToggleInCluster',false,{nodeId:nodeId},succeededCallback,failedCallback,userContext); },
+ToggleBackgroundProcessing:function(nodeId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ToggleBackgroundProcessing',false,{nodeId:nodeId},succeededCallback,failedCallback,userContext); },
+ToggleEngineProcessing:function(nodeId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ToggleEngineProcessing',false,{nodeId:nodeId},succeededCallback,failedCallback,userContext); },
+ToggleSessionRecordingProcessing:function(nodeId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ToggleSessionRecordingProcessing',false,{nodeId:nodeId},succeededCallback,failedCallback,userContext); },
+CancelSecretKeyRotation:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'CancelSecretKeyRotation',false,{},succeededCallback,failedCallback,userContext); },
+SetUseDashboard:function(useDashboard,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetUseDashboard',false,{useDashboard:useDashboard},succeededCallback,failedCallback,userContext); },
+SetHideSecretChangePasswordWarning:function(hideWarning,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetHideSecretChangePasswordWarning',false,{hideWarning:hideWarning},succeededCallback,failedCallback,userContext); },
+CopySecretTemplate:function(newSecretTemplateName,secretTypeIdToCopy,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'CopySecretTemplate',false,{newSecretTemplateName:newSecretTemplateName,secretTypeIdToCopy:secretTypeIdToCopy},succeededCallback,failedCallback,userContext); },
+GetRootFolder:function(rootFolderId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetRootFolder',false,{rootFolderId:rootFolderId},succeededCallback,failedCallback,userContext); },
+GetFoldersForTree:function(parentId,rootFolderId,ouPosition,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetFoldersForTree',false,{parentId:parentId,rootFolderId:rootFolderId,ouPosition:ouPosition},succeededCallback,failedCallback,userContext); },
+GetFolderAncestors:function(folderId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetFolderAncestors',false,{folderId:folderId},succeededCallback,failedCallback,userContext); },
+GetOUSources:function(rootFolderId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetOUSources',false,{rootFolderId:rootFolderId},succeededCallback,failedCallback,userContext); },
+GetOUSourcesExcludeNonAD:function(rootFolderId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetOUSourcesExcludeNonAD',false,{rootFolderId:rootFolderId},succeededCallback,failedCallback,userContext); },
+GetOUsForTree:function(parentId,rootFolderId,ouPosition,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetOUsForTree',false,{parentId:parentId,rootFolderId:rootFolderId,ouPosition:ouPosition},succeededCallback,failedCallback,userContext); },
+GetOUAncestors:function(folderId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetOUAncestors',false,{folderId:folderId},succeededCallback,failedCallback,userContext); },
+SearchComputerDependencies:function(searchOptions,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SearchComputerDependencies',false,{searchOptions:searchOptions},succeededCallback,failedCallback,userContext); },
+GetDependencyGroupsForSecret:function(secretId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetDependencyGroupsForSecret',false,{secretId:secretId},succeededCallback,failedCallback,userContext); },
+SaveDependencyGroup:function(secretDependencyGroupId,secretId,name,siteId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveDependencyGroup',false,{secretDependencyGroupId:secretDependencyGroupId,secretId:secretId,name:name,siteId:siteId},succeededCallback,failedCallback,userContext); },
+DeleteDependencyGroup:function(secretDependencyGroupId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DeleteDependencyGroup',false,{secretDependencyGroupId:secretDependencyGroupId},succeededCallback,failedCallback,userContext); },
+SearchComputerAccounts:function(searchOptions,currentTab,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SearchComputerAccounts',false,{searchOptions:searchOptions,currentTab:currentTab},succeededCallback,failedCallback,userContext); },
+LoadComputerAccounts:function(computerId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'LoadComputerAccounts',false,{computerId:computerId},succeededCallback,failedCallback,userContext); },
+ScanAndMatchComputers:function(discoverySourceId,computerId,scanDependenciesOnly,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ScanAndMatchComputers',false,{discoverySourceId:discoverySourceId,computerId:computerId,scanDependenciesOnly:scanDependenciesOnly},succeededCallback,failedCallback,userContext); },
+IsComputerScanCompleteForMatchers:function(discoverySourceId,computersToCheck,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'IsComputerScanCompleteForMatchers',false,{discoverySourceId:discoverySourceId,computersToCheck:computersToCheck},succeededCallback,failedCallback,userContext); },
+GetLocalAccountColumnCheckboxDisplaySettings:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetLocalAccountColumnCheckboxDisplaySettings',false,{},succeededCallback,failedCallback,userContext); },
+GetServiceAccountColumnCheckboxDisplaySettings:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetServiceAccountColumnCheckboxDisplaySettings',false,{},succeededCallback,failedCallback,userContext); },
+SetLocalAccountColumnCheckboxDisplaySettings:function(settings,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetLocalAccountColumnCheckboxDisplaySettings',false,{settings:settings},succeededCallback,failedCallback,userContext); },
+SetServiceAccountColumnCheckboxDisplaySettings:function(settings,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetServiceAccountColumnCheckboxDisplaySettings',false,{settings:settings},succeededCallback,failedCallback,userContext); },
+GetDiscoveryImportInfoForCustomDiscoverySource:function(discoverySourceId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetDiscoveryImportInfoForCustomDiscoverySource',false,{discoverySourceId:discoverySourceId},succeededCallback,failedCallback,userContext); },
+GetPasswordTypeInfoBySecretTypeId:function(secretTypeId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetPasswordTypeInfoBySecretTypeId',false,{secretTypeId:secretTypeId},succeededCallback,failedCallback,userContext); },
+GetDiscoveryTestSettings:function(discoveryScannerId,discoveryScanTypeId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetDiscoveryTestSettings',false,{discoveryScannerId:discoveryScannerId,discoveryScanTypeId:discoveryScanTypeId},succeededCallback,failedCallback,userContext); },
+GetScanLogForComputer:function(computerId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetScanLogForComputer',false,{computerId:computerId},succeededCallback,failedCallback,userContext); },
+ValidateDiscoveryImport:function(dto,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ValidateDiscoveryImport',false,{dto:dto},succeededCallback,failedCallback,userContext); },
+GeneratePasswordWithDtos:function(passwordRequirement,passwordRequirementRules,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GeneratePasswordWithDtos',false,{passwordRequirement:passwordRequirement,passwordRequirementRules:passwordRequirementRules},succeededCallback,failedCallback,userContext); },
+GetPasswordRequirementRuleDtos:function(passwordRequirementId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetPasswordRequirementRuleDtos',false,{passwordRequirementId:passwordRequirementId},succeededCallback,failedCallback,userContext); },
+SavePasswordRequirement:function(passwordRequirement,passwordRequirementRules,setToDefault,dictionaryIds,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SavePasswordRequirement',false,{passwordRequirement:passwordRequirement,passwordRequirementRules:passwordRequirementRules,setToDefault:setToDefault,dictionaryIds:dictionaryIds},succeededCallback,failedCallback,userContext); },
+ValidatePassword:function(password,passwordRequirementId,secretId,username,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ValidatePassword',false,{password:password,passwordRequirementId:passwordRequirementId,secretId:secretId,username:username},succeededCallback,failedCallback,userContext); },
+GetSecretPasswordStrength:function(secretItemId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSecretPasswordStrength',false,{secretItemId:secretItemId},succeededCallback,failedCallback,userContext); },
+GetDiscoveryImportRules:function(showInactive,pageNumber,pageSize,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetDiscoveryImportRules',false,{showInactive:showInactive,pageNumber:pageNumber,pageSize:pageSize},succeededCallback,failedCallback,userContext); },
+SaveDiscoveryImportRuleOrder:function(ruleIds,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveDiscoveryImportRuleOrder',false,{ruleIds:ruleIds},succeededCallback,failedCallback,userContext); },
+DependencyImportRuleSaveOrder:function(ruleIds,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DependencyImportRuleSaveOrder',false,{ruleIds:ruleIds},succeededCallback,failedCallback,userContext); },
+DeactivateDiscoveryImportRule:function(discoveryImportRuleId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DeactivateDiscoveryImportRule',false,{discoveryImportRuleId:discoveryImportRuleId},succeededCallback,failedCallback,userContext); },
+ActivateDiscoveryImportRule:function(discoveryImportRuleId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ActivateDiscoveryImportRule',false,{discoveryImportRuleId:discoveryImportRuleId},succeededCallback,failedCallback,userContext); },
+GetSecretDependencyTemplates:function(startIndex,showInactive,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSecretDependencyTemplates',false,{startIndex:startIndex,showInactive:showInactive},succeededCallback,failedCallback,userContext); },
+SaveSecretDependencyTemplate:function(ajaxSecretDependencyTemplate,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveSecretDependencyTemplate',false,{ajaxSecretDependencyTemplate:ajaxSecretDependencyTemplate},succeededCallback,failedCallback,userContext); },
+DeleteSecretDependencyTemplate:function(ajaxSecretDependencyTemplate,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DeleteSecretDependencyTemplate',false,{ajaxSecretDependencyTemplate:ajaxSecretDependencyTemplate},succeededCallback,failedCallback,userContext); },
+GetSecretDependencyChangers:function(startIndex,showInactive,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSecretDependencyChangers',false,{startIndex:startIndex,showInactive:showInactive},succeededCallback,failedCallback,userContext); },
+GetSecretDependencyChanger:function(secretDependencyChangerId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSecretDependencyChanger',false,{secretDependencyChangerId:secretDependencyChangerId},succeededCallback,failedCallback,userContext); },
+GetDependencyConfigInfo:function(secretDependencyTemplateId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetDependencyConfigInfo',false,{secretDependencyTemplateId:secretDependencyTemplateId},succeededCallback,failedCallback,userContext); },
+SaveSecretDependencyChanger:function(ajaxSecretDependencyChanger,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveSecretDependencyChanger',false,{ajaxSecretDependencyChanger:ajaxSecretDependencyChanger},succeededCallback,failedCallback,userContext); },
+DeleteSecretDependencyChanger:function(ajaxSecretDependencyChanger,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DeleteSecretDependencyChanger',false,{ajaxSecretDependencyChanger:ajaxSecretDependencyChanger},succeededCallback,failedCallback,userContext); },
+GetSecretDependencies:function(secretId,startIndex,showInactive,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSecretDependencies',false,{secretId:secretId,startIndex:startIndex,showInactive:showInactive},succeededCallback,failedCallback,userContext); },
+SaveSecretDependency:function(ajaxSecretDependency,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveSecretDependency',false,{ajaxSecretDependency:ajaxSecretDependency},succeededCallback,failedCallback,userContext); },
+DeleteSecretDependency:function(ajaxSecretDependency,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DeleteSecretDependency',false,{ajaxSecretDependency:ajaxSecretDependency},succeededCallback,failedCallback,userContext); },
+TestSecretDependency:function(ajaxSecretDependency,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'TestSecretDependency',false,{ajaxSecretDependency:ajaxSecretDependency},succeededCallback,failedCallback,userContext); },
+SaveDependencyOrder:function(dependency,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveDependencyOrder',false,{dependency:dependency},succeededCallback,failedCallback,userContext); },
+SaveCustomScheduledReport:function(reportSchedule,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveCustomScheduledReport',false,{reportSchedule:reportSchedule},succeededCallback,failedCallback,userContext); },
+GetOlsonTimezoneId:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetOlsonTimezoneId',false,{},succeededCallback,failedCallback,userContext); },
+LoadCustomScheduledReport:function(reportId,scheduledReportId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'LoadCustomScheduledReport',false,{reportId:reportId,scheduledReportId:scheduledReportId},succeededCallback,failedCallback,userContext); },
+GetAvailableSubscribers:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetAvailableSubscribers',false,{},succeededCallback,failedCallback,userContext); },
+GetUserList:function(filter,itemId,includeAll,excludeIdList,includeInactiveUsers,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetUserList',false,{filter:filter,itemId:itemId,includeAll:includeAll,excludeIdList:excludeIdList,includeInactiveUsers:includeInactiveUsers},succeededCallback,failedCallback,userContext); },
+GetGroupList:function(filter,itemId,includeAll,excludeIdList,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetGroupList',false,{filter:filter,itemId:itemId,includeAll:includeAll,excludeIdList:excludeIdList},succeededCallback,failedCallback,userContext); },
+GetGroupAndUserList:function(filter,includeAll,excludeIdList,includeApplicationAccounts,includeEveryone,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetGroupAndUserList',false,{filter:filter,includeAll:includeAll,excludeIdList:excludeIdList,includeApplicationAccounts:includeApplicationAccounts,includeEveryone:includeEveryone},succeededCallback,failedCallback,userContext); },
+SendReportEmail:function(toAddress,reportId,startDate,endDate,userId,groupId,folderId,customText,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SendReportEmail',false,{toAddress:toAddress,reportId:reportId,startDate:startDate,endDate:endDate,userId:userId,groupId:groupId,folderId:folderId,customText:customText},succeededCallback,failedCallback,userContext); },
+SaveDiscoveryImportRule:function(rule,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveDiscoveryImportRule',false,{rule:rule},succeededCallback,failedCallback,userContext); },
+UpdateScript:function(script,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'UpdateScript',false,{script:script},succeededCallback,failedCallback,userContext); },
+GetSshCommandMenu:function(sshCommandMenuId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSshCommandMenu',false,{sshCommandMenuId:sshCommandMenuId},succeededCallback,failedCallback,userContext); },
+GetSecretSearchFilter:function(secretSearchFilterId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSecretSearchFilter',false,{secretSearchFilterId:secretSearchFilterId},succeededCallback,failedCallback,userContext); },
+GetAllSecretSearchFilters:function(includeInactive,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetAllSecretSearchFilters',false,{includeInactive:includeInactive},succeededCallback,failedCallback,userContext); },
+SaveSecretSearchFilter:function(secretSearchFilter,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveSecretSearchFilter',false,{secretSearchFilter:secretSearchFilter},succeededCallback,failedCallback,userContext); },
+DeactivateSecretSearchFilter:function(secretSearchFilterId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DeactivateSecretSearchFilter',false,{secretSearchFilterId:secretSearchFilterId},succeededCallback,failedCallback,userContext); },
+GetSshCommandMenus:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSshCommandMenus',false,{},succeededCallback,failedCallback,userContext); },
+GetSshCommands:function(sshCommandMenuId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSshCommands',false,{sshCommandMenuId:sshCommandMenuId},succeededCallback,failedCallback,userContext); },
+SetSshCommandMenuActive:function(sshCommandMenuId,isActive,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetSshCommandMenuActive',false,{sshCommandMenuId:sshCommandMenuId,isActive:isActive},succeededCallback,failedCallback,userContext); },
+UpdateSshCommandMenu:function(sshCommandMenuId,sshCommandMenuName,sshCommandMenuDescription,Active,sshCommandsText,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'UpdateSshCommandMenu',false,{sshCommandMenuId:sshCommandMenuId,sshCommandMenuName:sshCommandMenuName,sshCommandMenuDescription:sshCommandMenuDescription,Active:Active,sshCommandsText:sshCommandsText},succeededCallback,failedCallback,userContext); },
+GetDiscoveryItemScanners:function(includeInactive,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetDiscoveryItemScanners',false,{includeInactive:includeInactive},succeededCallback,failedCallback,userContext); },
+GetEligibleDiscoveryItemScanners:function(discoverySourceId,scanTypeId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetEligibleDiscoveryItemScanners',false,{discoverySourceId:discoverySourceId,scanTypeId:scanTypeId},succeededCallback,failedCallback,userContext); },
+SaveDiscoveryItemScanner:function(scanner,copiedFromId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveDiscoveryItemScanner',false,{scanner:scanner,copiedFromId:copiedFromId},succeededCallback,failedCallback,userContext); },
+DeleteDiscoveryItemScanner:function(scannerId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DeleteDiscoveryItemScanner',false,{scannerId:scannerId},succeededCallback,failedCallback,userContext); },
+GetScanItemTemplates:function(includeInactive,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetScanItemTemplates',false,{includeInactive:includeInactive},succeededCallback,failedCallback,userContext); },
+IsScanItemTemplateInUse:function(templateId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'IsScanItemTemplateInUse',false,{templateId:templateId},succeededCallback,failedCallback,userContext); },
+GetScanDiscoveryCommandSets:function(includeInactive,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetScanDiscoveryCommandSets',false,{includeInactive:includeInactive},succeededCallback,failedCallback,userContext); },
+GetDiscoveryScanners:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetDiscoveryScanners',false,{},succeededCallback,failedCallback,userContext); },
+GetDiscoveryScanTypes:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetDiscoveryScanTypes',false,{},succeededCallback,failedCallback,userContext); },
+GetAllScripts:function(includeInactive,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetAllScripts',false,{includeInactive:includeInactive},succeededCallback,failedCallback,userContext); },
+GetPowershellScripts:function(showInactive,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetPowershellScripts',false,{showInactive:showInactive},succeededCallback,failedCallback,userContext); },
+GetSettingsForItemScanner:function(itemScannerId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSettingsForItemScanner',false,{itemScannerId:itemScannerId},succeededCallback,failedCallback,userContext); },
+SaveSettingsForItemScanner:function(itemScannerId,settings,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveSettingsForItemScanner',false,{itemScannerId:itemScannerId,settings:settings},succeededCallback,failedCallback,userContext); },
+GetDiscoverySourceScannerMapWithScanners:function(discoverySourceId,scanTypeId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetDiscoverySourceScannerMapWithScanners',false,{discoverySourceId:discoverySourceId,scanTypeId:scanTypeId},succeededCallback,failedCallback,userContext); },
+SaveDiscoveryItemScannerToDiscoverySource:function(discoverySourceId,scanner,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveDiscoveryItemScannerToDiscoverySource',false,{discoverySourceId:discoverySourceId,scanner:scanner},succeededCallback,failedCallback,userContext); },
+SaveCredToScannerMap:function(scannerMapId,secretId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveCredToScannerMap',false,{scannerMapId:scannerMapId,secretId:secretId},succeededCallback,failedCallback,userContext); },
+SaveDiscoveryScannerCredentialMaps:function(credentialMaps,discoverySourceScannerMapId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveDiscoveryScannerCredentialMaps',false,{credentialMaps:credentialMaps,discoverySourceScannerMapId:discoverySourceScannerMapId},succeededCallback,failedCallback,userContext); },
+GetSites:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSites',false,{},succeededCallback,failedCallback,userContext); },
+GetSitesIncludeInactive:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSitesIncludeInactive',false,{},succeededCallback,failedCallback,userContext); },
+RemoveCredFromScannerMap:function(credentialId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'RemoveCredFromScannerMap',false,{credentialId:credentialId},succeededCallback,failedCallback,userContext); },
+RemoveDiscoveryItemScannerFromDiscoverySource:function(discoveryScannerMapId,scanTypeId,discoverySourceId,itemScanTemplateId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'RemoveDiscoveryItemScannerFromDiscoverySource',false,{discoveryScannerMapId:discoveryScannerMapId,scanTypeId:scanTypeId,discoverySourceId:discoverySourceId,itemScanTemplateId:itemScanTemplateId},succeededCallback,failedCallback,userContext); },
+AdjustItemScannerExecutionOrder:function(discoverySourceId,discoveryItemScannerId,newPlace,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'AdjustItemScannerExecutionOrder',false,{discoverySourceId:discoverySourceId,discoveryItemScannerId:discoveryItemScannerId,newPlace:newPlace},succeededCallback,failedCallback,userContext); },
+DeleteScanItemTemplate:function(scanItemTemplateId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DeleteScanItemTemplate',false,{scanItemTemplateId:scanItemTemplateId},succeededCallback,failedCallback,userContext); },
+GetDiscoverySourceMapSettings:function(discoverySourceMapId,discoverySourceId,scanType,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetDiscoverySourceMapSettings',false,{discoverySourceMapId:discoverySourceMapId,discoverySourceId:discoverySourceId,scanType:scanType},succeededCallback,failedCallback,userContext); },
+GetDiscoveryCredentialsForDiscoverySource:function(discoverySourceId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetDiscoveryCredentialsForDiscoverySource',false,{discoverySourceId:discoverySourceId},succeededCallback,failedCallback,userContext); },
+ValidateDiscoveryAuthSettings:function(scannerMap,settings,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ValidateDiscoveryAuthSettings',false,{scannerMap:scannerMap,settings:settings},succeededCallback,failedCallback,userContext); },
+SaveDiscoverySourceMapSettings:function(scannerMap,settings,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveDiscoverySourceMapSettings',false,{scannerMap:scannerMap,settings:settings},succeededCallback,failedCallback,userContext); },
+LoadDiscoverySource:function(discoverySourceId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'LoadDiscoverySource',false,{discoverySourceId:discoverySourceId},succeededCallback,failedCallback,userContext); },
+SaveDiscoverySource:function(discoverySource,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveDiscoverySource',false,{discoverySource:discoverySource},succeededCallback,failedCallback,userContext); },
+IsDiscoverySiteRemote:function(discoverySourceId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'IsDiscoverySiteRemote',false,{discoverySourceId:discoverySourceId},succeededCallback,failedCallback,userContext); },
+GetScanItemTemplate:function(templateId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetScanItemTemplate',false,{templateId:templateId},succeededCallback,failedCallback,userContext); },
+GetItemTemplateFields:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetItemTemplateFields',false,{},succeededCallback,failedCallback,userContext); },
+GetItemTemplateFieldsByTemplateId:function(templateId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetItemTemplateFieldsByTemplateId',false,{templateId:templateId},succeededCallback,failedCallback,userContext); },
+GetItemTemplateAssociatedMaps:function(succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetItemTemplateAssociatedMaps',false,{},succeededCallback,failedCallback,userContext); },
+SaveScanItemTemplate:function(template,fields,accountScanId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveScanItemTemplate',false,{template:template,fields:fields,accountScanId:accountScanId},succeededCallback,failedCallback,userContext); },
+GetPowershellScript:function(powershellScriptId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetPowershellScript',false,{powershellScriptId:powershellScriptId},succeededCallback,failedCallback,userContext); }}
+Thycotic.webapp.Web.ajax.AjaxServices.registerClass('Thycotic.webapp.Web.ajax.AjaxServices',Sys.Net.WebServiceProxy);
+Thycotic.webapp.Web.ajax.AjaxServices._staticInstance = new Thycotic.webapp.Web.ajax.AjaxServices();
+Thycotic.webapp.Web.ajax.AjaxServices.set_path = function(value) { Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.set_path(value); }
+Thycotic.webapp.Web.ajax.AjaxServices.get_path = function() { return Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.get_path(); }
+Thycotic.webapp.Web.ajax.AjaxServices.set_timeout = function(value) { Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.set_timeout(value); }
+Thycotic.webapp.Web.ajax.AjaxServices.get_timeout = function() { return Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.get_timeout(); }
+Thycotic.webapp.Web.ajax.AjaxServices.set_defaultUserContext = function(value) { Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.set_defaultUserContext(value); }
+Thycotic.webapp.Web.ajax.AjaxServices.get_defaultUserContext = function() { return Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.get_defaultUserContext(); }
+Thycotic.webapp.Web.ajax.AjaxServices.set_defaultSucceededCallback = function(value) { Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.set_defaultSucceededCallback(value); }
+Thycotic.webapp.Web.ajax.AjaxServices.get_defaultSucceededCallback = function() { return Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.get_defaultSucceededCallback(); }
+Thycotic.webapp.Web.ajax.AjaxServices.set_defaultFailedCallback = function(value) { Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.set_defaultFailedCallback(value); }
+Thycotic.webapp.Web.ajax.AjaxServices.get_defaultFailedCallback = function() { return Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.get_defaultFailedCallback(); }
+Thycotic.webapp.Web.ajax.AjaxServices.set_enableJsonp = function(value) { Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.set_enableJsonp(value); }
+Thycotic.webapp.Web.ajax.AjaxServices.get_enableJsonp = function() { return Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.get_enableJsonp(); }
+Thycotic.webapp.Web.ajax.AjaxServices.set_jsonpCallbackParameter = function(value) { Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.set_jsonpCallbackParameter(value); }
+Thycotic.webapp.Web.ajax.AjaxServices.get_jsonpCallbackParameter = function() { return Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.get_jsonpCallbackParameter(); }
+Thycotic.webapp.Web.ajax.AjaxServices.set_path("/ajax/ajaxservices.asmx");
+Thycotic.webapp.Web.ajax.AjaxServices.SetPowershellScriptActiveValue= function(powershellScriptId,isActive,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SetPowershellScriptActiveValue(powershellScriptId,isActive,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSecretItemValues= function(secretId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSecretItemValues(secretId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.TestPowershellScript= function(scriptId,siteId,username,password,domain,scriptArgs,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.TestPowershellScript(scriptId,siteId,username,password,domain,scriptArgs,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.TestSqlScript= function(scriptId,siteId,server,database,username,password,port,domain,impersonate,scriptArgs,odbcConnectionStringArgs,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.TestSqlScript(scriptId,siteId,server,database,username,password,port,domain,impersonate,scriptArgs,odbcConnectionStringArgs,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.TestSSHScript= function(scriptId,siteId,server,port,username,password,scriptArgs,serverKeyDigest,privateKeyBytes,privateKeyPassphrase,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.TestSSHScript(scriptId,siteId,server,port,username,password,scriptArgs,serverKeyDigest,privateKeyBytes,privateKeyPassphrase,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetAllScriptDependencyParameters= function(secretDependencyChangerId,secretDependencyId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetAllScriptDependencyParameters(secretDependencyChangerId,secretDependencyId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetScriptDependencyParameters= function(scriptId,secretDependencyId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetScriptDependencyParameters(scriptId,secretDependencyId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetDependencyChangerScriptParameters= function(secretDependencyChangerId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetDependencyChangerScriptParameters(secretDependencyChangerId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.CreateDependencyChangerScriptParametersForScript= function(secretDependencyChangerId,scriptConditionType,scriptId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.CreateDependencyChangerScriptParametersForScript(secretDependencyChangerId,scriptConditionType,scriptId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetScriptHookParameters= function(scriptId,secretHookId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetScriptHookParameters(scriptId,secretHookId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveFolder= function(folderName,parentFolderId,folderTypeId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveFolder(folderName,parentFolderId,folderTypeId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSecretHooks= function(secretId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSecretHooks(secretId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveSecretHook= function(secretHook,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveSecretHook(secretHook,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DeleteSecretHook= function(secretHook,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DeleteSecretHook(secretHook,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.FindUsers= function(rows,page,sortOrderColumn,orderDirection,searchTerm,showInactive,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.FindUsers(rows,page,sortOrderColumn,orderDirection,searchTerm,showInactive,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.FindApplicationAccounts= function(rows,page,sortOrderColumn,orderDirection,searchTerm,showInactive,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.FindApplicationAccounts(rows,page,sortOrderColumn,orderDirection,searchTerm,showInactive,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DependencyImportRuleSave= function(dependencyImportRule,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DependencyImportRuleSave(dependencyImportRule,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetDependencyImportRules= function(showInactive,pageNumber,pageSize,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetDependencyImportRules(showInactive,pageNumber,pageSize,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DependencyImportRuleDeactivate= function(dependencyImportRuleId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DependencyImportRuleDeactivate(dependencyImportRuleId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SetUseCustomLogo= function(useCustom,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SetUseCustomLogo(useCustom,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SearchSecretSessions= function(searchString,status,dayRange,pageSize,pageIndex,orderBy,orderDir,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SearchSecretSessions(searchString,status,dayRange,pageSize,pageIndex,orderBy,orderDir,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SearchAdminChallenges= function(completed,searchString,type,dayRange,pageSize,pageIndex,orderBy,orderDir,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SearchAdminChallenges(completed,searchString,type,dayRange,pageSize,pageIndex,orderBy,orderDir,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.CompleteAdminChallenge= function(securityAnalyticsChallengeId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.CompleteAdminChallenge(securityAnalyticsChallengeId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.TerminateSecretSession= function(sessionId,secretId,userId,action,message,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.TerminateSecretSession(sessionId,secretId,userId,action,message,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetActiveSecretSessions= function(secretId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetActiveSecretSessions(secretId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSessionFrames= function(sessionId,topImageIdRecovered,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSessionFrames(sessionId,topImageIdRecovered,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSSHLoginCredentials= function(secretId,machine,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSSHLoginCredentials(secretId,machine,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetProxyCredentials= function(secretId,machine,siteId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetProxyCredentials(secretId,machine,siteId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DoBulkOperationByReportId= function(bulkOperation,reportId,parameters,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DoBulkOperationByReportId(bulkOperation,reportId,parameters,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.TestDiscoveryScanner= function(testInput,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.TestDiscoveryScanner(testInput,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.ValidateOverlappingHostRangesForSingleDiscoverySource= function(hostRanges,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.ValidateOverlappingHostRangesForSingleDiscoverySource(hostRanges,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DoHostRangesOverlapWithSimiliarDiscoverySources= function(hostRanges,discoverySourceId,discoveryScannerId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DoHostRangesOverlapWithSimiliarDiscoverySources(hostRanges,discoverySourceId,discoveryScannerId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetLogsForDependency= function(secretDependencyId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetLogsForDependency(secretDependencyId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DeleteExtendedMapping= function(secretTypeId,extendedTypeId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DeleteExtendedMapping(secretTypeId,extendedTypeId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveExtendedMapping= function(secretTypeId,extendedTypeId,fieldMappings,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveExtendedMapping(secretTypeId,extendedTypeId,fieldMappings,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.ApproveRequest= function(secretAccessRequestId,responseComment,startDate,expirationDate,isOverride,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.ApproveRequest(secretAccessRequestId,responseComment,startDate,expirationDate,isOverride,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DenyRequest= function(secretAccessRequestId,responseComment,isOverride,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DenyRequest(secretAccessRequestId,responseComment,isOverride,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.RequestAccess= function(requestComment,ticketSystemId,ticketNumberEntered,secretId,startDate,endDate,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.RequestAccess(requestComment,ticketSystemId,ticketNumberEntered,secretId,startDate,endDate,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.TestTicketSystem= function(ticketSystemId,ticketNumber,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.TestTicketSystem(ticketSystemId,ticketNumber,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetAllActiveUsernamePasswordExtendedTypes= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetAllActiveUsernamePasswordExtendedTypes(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetAllActiveUsernamePasswordExtendedTypesAndRPCTemplates= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetAllActiveUsernamePasswordExtendedTypesAndRPCTemplates(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetValidTemplatesForSiteEditSecretPicker= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetValidTemplatesForSiteEditSecretPicker(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetPasswordProviderList= function(passwordTypeId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetPasswordProviderList(passwordTypeId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSiteProcessingInfo= function(siteId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSiteProcessingInfo(siteId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.ValidateForEngineFailover= function(siteId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.ValidateForEngineFailover(siteId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetNumDomainUsersByEnabledStatus= function(domainId,isEnabled,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetNumDomainUsersByEnabledStatus(domainId,isEnabled,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SecretSessionRequiresDualApproval= function(secretSessionId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SecretSessionRequiresDualApproval(secretSessionId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetPasswordTypeSettings= function(passwordTypeId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetPasswordTypeSettings(passwordTypeId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SavePasswordTypeSetting= function(passwordTypeSettingMap,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SavePasswordTypeSetting(passwordTypeSettingMap,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.isThycoticOneEnabled= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.isThycoticOneEnabled(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.AssignEngines= function(manageEnginesInformations,siteConnectorId,heartbeatInterval,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.AssignEngines(manageEnginesInformations,siteConnectorId,heartbeatInterval,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DeleteEngines= function(engineIds,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DeleteEngines(engineIds,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.FetchEngineLog= function(engineId,searchTerm,pageSize,currentPage,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.FetchEngineLog(engineId,searchTerm,pageSize,currentPage,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSiteConnectorCredentials= function(siteConnectorId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSiteConnectorCredentials(siteConnectorId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.TestSiteConnector= function(siteConnectorId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.TestSiteConnector(siteConnectorId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.TestSite= function(siteId,timeout,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.TestSite(siteId,timeout,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetAllActiveForAccountByDependencyScanItemTemplate= function(scanItemTemplateId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetAllActiveForAccountByDependencyScanItemTemplate(scanItemTemplateId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.EnableIgnoreVersionMismatchOnUpgrade= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.EnableIgnoreVersionMismatchOnUpgrade(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DisableIgnoreVersionMismatchOnUpgrade= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DisableIgnoreVersionMismatchOnUpgrade(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.FinishManualUpgrade= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.FinishManualUpgrade(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSecretItemValue= function(secretItemId,isEditMode,auditAction,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSecretItemValue(secretItemId,isEditMode,auditAction,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSecretItemPhoneticValue= function(secretItemId,isEditMode,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSecretItemPhoneticValue(secretItemId,isEditMode,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GeneratePasswordNewSecret= function(secretFieldId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GeneratePasswordNewSecret(secretFieldId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GeneratePassword= function(secretFieldId,secretId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GeneratePassword(secretFieldId,secretId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GeneratePasswordForRemotePasswordChange= function(secretTypeId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GeneratePasswordForRemotePasswordChange(secretTypeId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.UpdateReportCategoryIndex= function(reportCategoryId,xIndex,yIndex,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.UpdateReportCategoryIndex(reportCategoryId,xIndex,yIndex,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.UpdateCustomReport= function(customReportId,reportCategoryId,sortOrder,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.UpdateCustomReport(customReportId,reportCategoryId,sortOrder,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DeleteReportCategory= function(reportCategoryId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DeleteReportCategory(reportCategoryId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.UpdateIsCollapsed= function(controlId,isCollapsed,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.UpdateIsCollapsed(controlId,isCollapsed,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetUsersForGroup= function(groupId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetUsersForGroup(groupId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSecretListForSimpleSearch2= function(prefixText,count,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSecretListForSimpleSearch2(prefixText,count,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SetLastSecretType= function(secretTypeId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SetLastSecretType(secretTypeId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SetLastSelectedActiveValue= function(active,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SetLastSelectedActiveValue(active,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SetLastSelectedSearchFolder= function(folderId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SetLastSelectedSearchFolder(folderId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetContextHelpState= function(page,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetContextHelpState(page,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SetContextHelpState= function(page,isClosed,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SetContextHelpState(page,isClosed,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SetSearchSubfolders= function(includeSubfolders,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SetSearchSubfolders(includeSubfolders,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.ExportSecrets= function(folderId,includeFolderPath,includeChildFolders,includeTotpSettings,notes,useCSVFormat,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.ExportSecrets(folderId,includeFolderPath,includeChildFolders,includeTotpSettings,notes,useCSVFormat,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.CancelExportSecrets= function(taskIdentifier,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.CancelExportSecrets(taskIdentifier,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetActiveUserByDomainCompletionList= function(prefixText,count,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetActiveUserByDomainCompletionList(prefixText,count,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetActiveGroupByDomainCompletionList= function(prefixText,count,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetActiveGroupByDomainCompletionList(prefixText,count,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetFoldersCompletionList= function(prefixText,count,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetFoldersCompletionList(prefixText,count,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetFoldersCompletionListWithId= function(prefixText,count,options,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetFoldersCompletionListWithId(prefixText,count,options,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetFoldersCompletionListWithIdNoFolderTypeFilter= function(prefixText,count,options,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetFoldersCompletionListWithIdNoFolderTypeFilter(prefixText,count,options,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetOUCompletionList= function(prefixText,count,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetOUCompletionList(prefixText,count,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetOUCompletionListExcludeNonAD= function(prefixText,count,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetOUCompletionListExcludeNonAD(prefixText,count,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SetLastFolderType= function(folderTypeId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SetLastFolderType(folderTypeId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetLauncherImagePath= function(secretId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetLauncherImagePath(secretId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSecretHeartbeatStatus= function(secretId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSecretHeartbeatStatus(secretId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetKeyReEncryptionProgress= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetKeyReEncryptionProgress(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetHSMKeyEncryptionProgress= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetHSMKeyEncryptionProgress(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.TurnReadOnlyModeOnForAllNodes= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.TurnReadOnlyModeOnForAllNodes(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.TurnReadOnlyModeOnForAllNodesOnUpgrade= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.TurnReadOnlyModeOnForAllNodesOnUpgrade(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.TurnReadOnlyModeOffForAllNodesOnUpgrade= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.TurnReadOnlyModeOffForAllNodesOnUpgrade(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetIsReadOnlyModeEnabledForAllNodes= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetIsReadOnlyModeEnabledForAllNodes(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.ToggleReadOnlyMode= function(nodeId,shouldBeInReadOnlyMode,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.ToggleReadOnlyMode(nodeId,shouldBeInReadOnlyMode,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.ToggleInCluster= function(nodeId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.ToggleInCluster(nodeId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.ToggleBackgroundProcessing= function(nodeId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.ToggleBackgroundProcessing(nodeId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.ToggleEngineProcessing= function(nodeId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.ToggleEngineProcessing(nodeId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.ToggleSessionRecordingProcessing= function(nodeId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.ToggleSessionRecordingProcessing(nodeId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.CancelSecretKeyRotation= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.CancelSecretKeyRotation(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SetUseDashboard= function(useDashboard,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SetUseDashboard(useDashboard,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SetHideSecretChangePasswordWarning= function(hideWarning,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SetHideSecretChangePasswordWarning(hideWarning,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.CopySecretTemplate= function(newSecretTemplateName,secretTypeIdToCopy,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.CopySecretTemplate(newSecretTemplateName,secretTypeIdToCopy,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetRootFolder= function(rootFolderId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetRootFolder(rootFolderId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetFoldersForTree= function(parentId,rootFolderId,ouPosition,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetFoldersForTree(parentId,rootFolderId,ouPosition,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetFolderAncestors= function(folderId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetFolderAncestors(folderId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetOUSources= function(rootFolderId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetOUSources(rootFolderId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetOUSourcesExcludeNonAD= function(rootFolderId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetOUSourcesExcludeNonAD(rootFolderId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetOUsForTree= function(parentId,rootFolderId,ouPosition,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetOUsForTree(parentId,rootFolderId,ouPosition,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetOUAncestors= function(folderId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetOUAncestors(folderId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SearchComputerDependencies= function(searchOptions,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SearchComputerDependencies(searchOptions,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetDependencyGroupsForSecret= function(secretId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetDependencyGroupsForSecret(secretId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveDependencyGroup= function(secretDependencyGroupId,secretId,name,siteId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveDependencyGroup(secretDependencyGroupId,secretId,name,siteId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DeleteDependencyGroup= function(secretDependencyGroupId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DeleteDependencyGroup(secretDependencyGroupId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SearchComputerAccounts= function(searchOptions,currentTab,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SearchComputerAccounts(searchOptions,currentTab,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.LoadComputerAccounts= function(computerId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.LoadComputerAccounts(computerId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.ScanAndMatchComputers= function(discoverySourceId,computerId,scanDependenciesOnly,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.ScanAndMatchComputers(discoverySourceId,computerId,scanDependenciesOnly,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.IsComputerScanCompleteForMatchers= function(discoverySourceId,computersToCheck,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.IsComputerScanCompleteForMatchers(discoverySourceId,computersToCheck,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetLocalAccountColumnCheckboxDisplaySettings= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetLocalAccountColumnCheckboxDisplaySettings(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetServiceAccountColumnCheckboxDisplaySettings= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetServiceAccountColumnCheckboxDisplaySettings(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SetLocalAccountColumnCheckboxDisplaySettings= function(settings,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SetLocalAccountColumnCheckboxDisplaySettings(settings,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SetServiceAccountColumnCheckboxDisplaySettings= function(settings,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SetServiceAccountColumnCheckboxDisplaySettings(settings,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetDiscoveryImportInfoForCustomDiscoverySource= function(discoverySourceId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetDiscoveryImportInfoForCustomDiscoverySource(discoverySourceId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetPasswordTypeInfoBySecretTypeId= function(secretTypeId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetPasswordTypeInfoBySecretTypeId(secretTypeId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetDiscoveryTestSettings= function(discoveryScannerId,discoveryScanTypeId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetDiscoveryTestSettings(discoveryScannerId,discoveryScanTypeId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetScanLogForComputer= function(computerId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetScanLogForComputer(computerId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.ValidateDiscoveryImport= function(dto,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.ValidateDiscoveryImport(dto,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GeneratePasswordWithDtos= function(passwordRequirement,passwordRequirementRules,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GeneratePasswordWithDtos(passwordRequirement,passwordRequirementRules,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetPasswordRequirementRuleDtos= function(passwordRequirementId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetPasswordRequirementRuleDtos(passwordRequirementId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SavePasswordRequirement= function(passwordRequirement,passwordRequirementRules,setToDefault,dictionaryIds,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SavePasswordRequirement(passwordRequirement,passwordRequirementRules,setToDefault,dictionaryIds,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.ValidatePassword= function(password,passwordRequirementId,secretId,username,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.ValidatePassword(password,passwordRequirementId,secretId,username,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSecretPasswordStrength= function(secretItemId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSecretPasswordStrength(secretItemId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetDiscoveryImportRules= function(showInactive,pageNumber,pageSize,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetDiscoveryImportRules(showInactive,pageNumber,pageSize,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveDiscoveryImportRuleOrder= function(ruleIds,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveDiscoveryImportRuleOrder(ruleIds,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DependencyImportRuleSaveOrder= function(ruleIds,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DependencyImportRuleSaveOrder(ruleIds,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DeactivateDiscoveryImportRule= function(discoveryImportRuleId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DeactivateDiscoveryImportRule(discoveryImportRuleId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.ActivateDiscoveryImportRule= function(discoveryImportRuleId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.ActivateDiscoveryImportRule(discoveryImportRuleId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSecretDependencyTemplates= function(startIndex,showInactive,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSecretDependencyTemplates(startIndex,showInactive,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveSecretDependencyTemplate= function(ajaxSecretDependencyTemplate,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveSecretDependencyTemplate(ajaxSecretDependencyTemplate,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DeleteSecretDependencyTemplate= function(ajaxSecretDependencyTemplate,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DeleteSecretDependencyTemplate(ajaxSecretDependencyTemplate,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSecretDependencyChangers= function(startIndex,showInactive,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSecretDependencyChangers(startIndex,showInactive,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSecretDependencyChanger= function(secretDependencyChangerId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSecretDependencyChanger(secretDependencyChangerId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetDependencyConfigInfo= function(secretDependencyTemplateId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetDependencyConfigInfo(secretDependencyTemplateId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveSecretDependencyChanger= function(ajaxSecretDependencyChanger,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveSecretDependencyChanger(ajaxSecretDependencyChanger,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DeleteSecretDependencyChanger= function(ajaxSecretDependencyChanger,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DeleteSecretDependencyChanger(ajaxSecretDependencyChanger,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSecretDependencies= function(secretId,startIndex,showInactive,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSecretDependencies(secretId,startIndex,showInactive,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveSecretDependency= function(ajaxSecretDependency,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveSecretDependency(ajaxSecretDependency,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DeleteSecretDependency= function(ajaxSecretDependency,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DeleteSecretDependency(ajaxSecretDependency,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.TestSecretDependency= function(ajaxSecretDependency,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.TestSecretDependency(ajaxSecretDependency,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveDependencyOrder= function(dependency,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveDependencyOrder(dependency,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveCustomScheduledReport= function(reportSchedule,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveCustomScheduledReport(reportSchedule,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetOlsonTimezoneId= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetOlsonTimezoneId(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.LoadCustomScheduledReport= function(reportId,scheduledReportId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.LoadCustomScheduledReport(reportId,scheduledReportId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetAvailableSubscribers= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetAvailableSubscribers(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetUserList= function(filter,itemId,includeAll,excludeIdList,includeInactiveUsers,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetUserList(filter,itemId,includeAll,excludeIdList,includeInactiveUsers,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetGroupList= function(filter,itemId,includeAll,excludeIdList,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetGroupList(filter,itemId,includeAll,excludeIdList,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetGroupAndUserList= function(filter,includeAll,excludeIdList,includeApplicationAccounts,includeEveryone,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetGroupAndUserList(filter,includeAll,excludeIdList,includeApplicationAccounts,includeEveryone,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SendReportEmail= function(toAddress,reportId,startDate,endDate,userId,groupId,folderId,customText,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SendReportEmail(toAddress,reportId,startDate,endDate,userId,groupId,folderId,customText,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveDiscoveryImportRule= function(rule,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveDiscoveryImportRule(rule,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.UpdateScript= function(script,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.UpdateScript(script,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSshCommandMenu= function(sshCommandMenuId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSshCommandMenu(sshCommandMenuId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSecretSearchFilter= function(secretSearchFilterId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSecretSearchFilter(secretSearchFilterId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetAllSecretSearchFilters= function(includeInactive,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetAllSecretSearchFilters(includeInactive,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveSecretSearchFilter= function(secretSearchFilter,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveSecretSearchFilter(secretSearchFilter,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DeactivateSecretSearchFilter= function(secretSearchFilterId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DeactivateSecretSearchFilter(secretSearchFilterId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSshCommandMenus= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSshCommandMenus(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSshCommands= function(sshCommandMenuId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSshCommands(sshCommandMenuId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SetSshCommandMenuActive= function(sshCommandMenuId,isActive,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SetSshCommandMenuActive(sshCommandMenuId,isActive,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.UpdateSshCommandMenu= function(sshCommandMenuId,sshCommandMenuName,sshCommandMenuDescription,Active,sshCommandsText,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.UpdateSshCommandMenu(sshCommandMenuId,sshCommandMenuName,sshCommandMenuDescription,Active,sshCommandsText,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetDiscoveryItemScanners= function(includeInactive,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetDiscoveryItemScanners(includeInactive,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetEligibleDiscoveryItemScanners= function(discoverySourceId,scanTypeId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetEligibleDiscoveryItemScanners(discoverySourceId,scanTypeId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveDiscoveryItemScanner= function(scanner,copiedFromId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveDiscoveryItemScanner(scanner,copiedFromId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DeleteDiscoveryItemScanner= function(scannerId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DeleteDiscoveryItemScanner(scannerId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetScanItemTemplates= function(includeInactive,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetScanItemTemplates(includeInactive,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.IsScanItemTemplateInUse= function(templateId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.IsScanItemTemplateInUse(templateId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetScanDiscoveryCommandSets= function(includeInactive,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetScanDiscoveryCommandSets(includeInactive,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetDiscoveryScanners= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetDiscoveryScanners(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetDiscoveryScanTypes= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetDiscoveryScanTypes(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetAllScripts= function(includeInactive,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetAllScripts(includeInactive,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetPowershellScripts= function(showInactive,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetPowershellScripts(showInactive,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSettingsForItemScanner= function(itemScannerId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSettingsForItemScanner(itemScannerId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveSettingsForItemScanner= function(itemScannerId,settings,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveSettingsForItemScanner(itemScannerId,settings,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetDiscoverySourceScannerMapWithScanners= function(discoverySourceId,scanTypeId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetDiscoverySourceScannerMapWithScanners(discoverySourceId,scanTypeId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveDiscoveryItemScannerToDiscoverySource= function(discoverySourceId,scanner,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveDiscoveryItemScannerToDiscoverySource(discoverySourceId,scanner,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveCredToScannerMap= function(scannerMapId,secretId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveCredToScannerMap(scannerMapId,secretId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveDiscoveryScannerCredentialMaps= function(credentialMaps,discoverySourceScannerMapId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveDiscoveryScannerCredentialMaps(credentialMaps,discoverySourceScannerMapId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSites= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSites(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetSitesIncludeInactive= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetSitesIncludeInactive(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.RemoveCredFromScannerMap= function(credentialId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.RemoveCredFromScannerMap(credentialId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.RemoveDiscoveryItemScannerFromDiscoverySource= function(discoveryScannerMapId,scanTypeId,discoverySourceId,itemScanTemplateId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.RemoveDiscoveryItemScannerFromDiscoverySource(discoveryScannerMapId,scanTypeId,discoverySourceId,itemScanTemplateId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.AdjustItemScannerExecutionOrder= function(discoverySourceId,discoveryItemScannerId,newPlace,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.AdjustItemScannerExecutionOrder(discoverySourceId,discoveryItemScannerId,newPlace,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.DeleteScanItemTemplate= function(scanItemTemplateId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.DeleteScanItemTemplate(scanItemTemplateId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetDiscoverySourceMapSettings= function(discoverySourceMapId,discoverySourceId,scanType,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetDiscoverySourceMapSettings(discoverySourceMapId,discoverySourceId,scanType,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetDiscoveryCredentialsForDiscoverySource= function(discoverySourceId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetDiscoveryCredentialsForDiscoverySource(discoverySourceId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.ValidateDiscoveryAuthSettings= function(scannerMap,settings,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.ValidateDiscoveryAuthSettings(scannerMap,settings,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveDiscoverySourceMapSettings= function(scannerMap,settings,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveDiscoverySourceMapSettings(scannerMap,settings,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.LoadDiscoverySource= function(discoverySourceId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.LoadDiscoverySource(discoverySourceId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveDiscoverySource= function(discoverySource,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveDiscoverySource(discoverySource,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.IsDiscoverySiteRemote= function(discoverySourceId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.IsDiscoverySiteRemote(discoverySourceId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetScanItemTemplate= function(templateId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetScanItemTemplate(templateId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetItemTemplateFields= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetItemTemplateFields(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetItemTemplateFieldsByTemplateId= function(templateId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetItemTemplateFieldsByTemplateId(templateId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetItemTemplateAssociatedMaps= function(onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetItemTemplateAssociatedMaps(onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.SaveScanItemTemplate= function(template,fields,accountScanId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.SaveScanItemTemplate(template,fields,accountScanId,onSuccess,onFailed,userContext); }
+Thycotic.webapp.Web.ajax.AjaxServices.GetPowershellScript= function(powershellScriptId,onSuccess,onFailed,userContext) {Thycotic.webapp.Web.ajax.AjaxServices._staticInstance.GetPowershellScript(powershellScriptId,onSuccess,onFailed,userContext); }
+var gtc = Sys.Net.WebServiceProxy._generateTypedConstructor;
+Type.registerNamespace('Thycotic.AppCore');
+if (typeof(Thycotic.AppCore.GenericResult) === 'undefined') {
+Thycotic.AppCore.GenericResult=gtc("Thycotic.AppCore.GenericResult");
+Thycotic.AppCore.GenericResult.registerClass('Thycotic.AppCore.GenericResult');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.Models');
+if (typeof(Thycotic.ihawu.Business.Models.SecretTestScriptValuesModel) === 'undefined') {
+Thycotic.ihawu.Business.Models.SecretTestScriptValuesModel=gtc("Thycotic.ihawu.Business.Models.SecretTestScriptValuesModel");
+Thycotic.ihawu.Business.Models.SecretTestScriptValuesModel.registerClass('Thycotic.ihawu.Business.Models.SecretTestScriptValuesModel');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.AjaxTypes');
+if (typeof(Thycotic.ihawu.Business.AjaxTypes.ScriptTestResultJson) === 'undefined') {
+Thycotic.ihawu.Business.AjaxTypes.ScriptTestResultJson=gtc("Thycotic.ihawu.Business.AjaxTypes.ScriptTestResultJson");
+Thycotic.ihawu.Business.AjaxTypes.ScriptTestResultJson.registerClass('Thycotic.ihawu.Business.AjaxTypes.ScriptTestResultJson');
+}
+Type.registerNamespace('Thycotic.SharedTypes.General');
+if (typeof(Thycotic.SharedTypes.General.SqlScriptArgument) === 'undefined') {
+Thycotic.SharedTypes.General.SqlScriptArgument=gtc("Thycotic.SharedTypes.General.SqlScriptArgument");
+Thycotic.SharedTypes.General.SqlScriptArgument.registerClass('Thycotic.SharedTypes.General.SqlScriptArgument');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.Webservices');
+if (typeof(Thycotic.ihawu.Business.Webservices.OdbcConnectionArg) === 'undefined') {
+Thycotic.ihawu.Business.Webservices.OdbcConnectionArg=gtc("Thycotic.ihawu.Business.Webservices.OdbcConnectionArg");
+Thycotic.ihawu.Business.Webservices.OdbcConnectionArg.registerClass('Thycotic.ihawu.Business.Webservices.OdbcConnectionArg');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.Federator');
+if (typeof(Thycotic.ihawu.Business.Federator.ScriptTestResult) === 'undefined') {
+Thycotic.ihawu.Business.Federator.ScriptTestResult=gtc("Thycotic.ihawu.Business.Federator.ScriptTestResult");
+Thycotic.ihawu.Business.Federator.ScriptTestResult.registerClass('Thycotic.ihawu.Business.Federator.ScriptTestResult');
+}
+if (typeof(Thycotic.SharedTypes.General.SshScriptArgument) === 'undefined') {
+Thycotic.SharedTypes.General.SshScriptArgument=gtc("Thycotic.SharedTypes.General.SshScriptArgument");
+Thycotic.SharedTypes.General.SshScriptArgument.registerClass('Thycotic.SharedTypes.General.SshScriptArgument');
+}
+if (typeof(Thycotic.ihawu.Business.Models.AjaxSecretDependencyChangerScript) === 'undefined') {
+Thycotic.ihawu.Business.Models.AjaxSecretDependencyChangerScript=gtc("Thycotic.ihawu.Business.Models.AjaxSecretDependencyChangerScript");
+Thycotic.ihawu.Business.Models.AjaxSecretDependencyChangerScript.registerClass('Thycotic.ihawu.Business.Models.AjaxSecretDependencyChangerScript');
+}
+if (typeof(Thycotic.ihawu.Business.Models.ScriptHookParameters) === 'undefined') {
+Thycotic.ihawu.Business.Models.ScriptHookParameters=gtc("Thycotic.ihawu.Business.Models.ScriptHookParameters");
+Thycotic.ihawu.Business.Models.ScriptHookParameters.registerClass('Thycotic.ihawu.Business.Models.ScriptHookParameters');
+}
+if (typeof(Thycotic.ihawu.Business.Models.SecretHook) === 'undefined') {
+Thycotic.ihawu.Business.Models.SecretHook=gtc("Thycotic.ihawu.Business.Models.SecretHook");
+Thycotic.ihawu.Business.Models.SecretHook.registerClass('Thycotic.ihawu.Business.Models.SecretHook');
+}
+if (typeof(Thycotic.ihawu.Business.Webservices.UsersPageSearchResult) === 'undefined') {
+Thycotic.ihawu.Business.Webservices.UsersPageSearchResult=gtc("Thycotic.ihawu.Business.Webservices.UsersPageSearchResult");
+Thycotic.ihawu.Business.Webservices.UsersPageSearchResult.registerClass('Thycotic.ihawu.Business.Webservices.UsersPageSearchResult');
+}
+if (typeof(Thycotic.ihawu.Business.Models.DependencyImportRule) === 'undefined') {
+Thycotic.ihawu.Business.Models.DependencyImportRule=gtc("Thycotic.ihawu.Business.Models.DependencyImportRule");
+Thycotic.ihawu.Business.Models.DependencyImportRule.registerClass('Thycotic.ihawu.Business.Models.DependencyImportRule');
+}
+if (typeof(Thycotic.AppCore.GenericResultWithId) === 'undefined') {
+Thycotic.AppCore.GenericResultWithId=gtc("Thycotic.AppCore.GenericResultWithId");
+Thycotic.AppCore.GenericResultWithId.registerClass('Thycotic.AppCore.GenericResultWithId');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.SecretSessions');
+if (typeof(Thycotic.ihawu.Business.SecretSessions.SecretSessionWrapper) === 'undefined') {
+Thycotic.ihawu.Business.SecretSessions.SecretSessionWrapper=gtc("Thycotic.ihawu.Business.SecretSessions.SecretSessionWrapper");
+Thycotic.ihawu.Business.SecretSessions.SecretSessionWrapper.registerClass('Thycotic.ihawu.Business.SecretSessions.SecretSessionWrapper');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.Pba.Directive');
+if (typeof(Thycotic.ihawu.Business.Pba.Directive.ChallengeWrapper) === 'undefined') {
+Thycotic.ihawu.Business.Pba.Directive.ChallengeWrapper=gtc("Thycotic.ihawu.Business.Pba.Directive.ChallengeWrapper");
+Thycotic.ihawu.Business.Pba.Directive.ChallengeWrapper.registerClass('Thycotic.ihawu.Business.Pba.Directive.ChallengeWrapper');
+}
+if (typeof(Thycotic.ihawu.Business.SecretSessions.SessionFrame) === 'undefined') {
+Thycotic.ihawu.Business.SecretSessions.SessionFrame=gtc("Thycotic.ihawu.Business.SecretSessions.SessionFrame");
+Thycotic.ihawu.Business.SecretSessions.SessionFrame.registerClass('Thycotic.ihawu.Business.SecretSessions.SessionFrame');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.SSHProxy');
+if (typeof(Thycotic.ihawu.Business.SSHProxy.SSHProxyCredentials) === 'undefined') {
+Thycotic.ihawu.Business.SSHProxy.SSHProxyCredentials=gtc("Thycotic.ihawu.Business.SSHProxy.SSHProxyCredentials");
+Thycotic.ihawu.Business.SSHProxy.SSHProxyCredentials.registerClass('Thycotic.ihawu.Business.SSHProxy.SSHProxyCredentials');
+}
+Type.registerNamespace('Thycotic.ihawu.Business');
+if (typeof(Thycotic.ihawu.Business.ProxyCredentials) === 'undefined') {
+Thycotic.ihawu.Business.ProxyCredentials=gtc("Thycotic.ihawu.Business.ProxyCredentials");
+Thycotic.ihawu.Business.ProxyCredentials.registerClass('Thycotic.ihawu.Business.ProxyCredentials');
+}
+Type.registerNamespace('Thycotic.Messages.ihawu.Areas.Reports');
+if (typeof(Thycotic.Messages.ihawu.Areas.Reports.GenerateReportParameters) === 'undefined') {
+Thycotic.Messages.ihawu.Areas.Reports.GenerateReportParameters=gtc("Thycotic.Messages.ihawu.Areas.Reports.GenerateReportParameters");
+Thycotic.Messages.ihawu.Areas.Reports.GenerateReportParameters.registerClass('Thycotic.Messages.ihawu.Areas.Reports.GenerateReportParameters');
+}
+if (typeof(Thycotic.ihawu.Business.AjaxTypes.DiscoveryTestInput) === 'undefined') {
+Thycotic.ihawu.Business.AjaxTypes.DiscoveryTestInput=gtc("Thycotic.ihawu.Business.AjaxTypes.DiscoveryTestInput");
+Thycotic.ihawu.Business.AjaxTypes.DiscoveryTestInput.registerClass('Thycotic.ihawu.Business.AjaxTypes.DiscoveryTestInput');
+}
+if (typeof(Thycotic.ihawu.Business.AjaxTypes.DependencyLogWrapper) === 'undefined') {
+Thycotic.ihawu.Business.AjaxTypes.DependencyLogWrapper=gtc("Thycotic.ihawu.Business.AjaxTypes.DependencyLogWrapper");
+Thycotic.ihawu.Business.AjaxTypes.DependencyLogWrapper.registerClass('Thycotic.ihawu.Business.AjaxTypes.DependencyLogWrapper');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.ExtendedTypes');
+if (typeof(Thycotic.ihawu.Business.ExtendedTypes.ExtendedFieldSecretFieldPair) === 'undefined') {
+Thycotic.ihawu.Business.ExtendedTypes.ExtendedFieldSecretFieldPair=gtc("Thycotic.ihawu.Business.ExtendedTypes.ExtendedFieldSecretFieldPair");
+Thycotic.ihawu.Business.ExtendedTypes.ExtendedFieldSecretFieldPair.registerClass('Thycotic.ihawu.Business.ExtendedTypes.ExtendedFieldSecretFieldPair');
+}
+Type.registerNamespace('System');
+if (typeof(System.DateTimeOffset) === 'undefined') {
+System.DateTimeOffset=gtc("System.DateTimeOffset");
+System.DateTimeOffset.registerClass('System.DateTimeOffset');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.RequestAccess');
+if (typeof(Thycotic.ihawu.Business.RequestAccess.ResolveStatus) === 'undefined') {
+Thycotic.ihawu.Business.RequestAccess.ResolveStatus=gtc("Thycotic.ihawu.Business.RequestAccess.ResolveStatus");
+Thycotic.ihawu.Business.RequestAccess.ResolveStatus.registerClass('Thycotic.ihawu.Business.RequestAccess.ResolveStatus');
+}
+if (typeof(Thycotic.ihawu.Business.RequestAccess.SecretAccessRequestResult) === 'undefined') {
+Thycotic.ihawu.Business.RequestAccess.SecretAccessRequestResult=gtc("Thycotic.ihawu.Business.RequestAccess.SecretAccessRequestResult");
+Thycotic.ihawu.Business.RequestAccess.SecretAccessRequestResult.registerClass('Thycotic.ihawu.Business.RequestAccess.SecretAccessRequestResult');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.DistributedEngine.SS');
+if (typeof(Thycotic.ihawu.Business.DistributedEngine.SS.SiteReadyResult) === 'undefined') {
+Thycotic.ihawu.Business.DistributedEngine.SS.SiteReadyResult=gtc("Thycotic.ihawu.Business.DistributedEngine.SS.SiteReadyResult");
+Thycotic.ihawu.Business.DistributedEngine.SS.SiteReadyResult.registerClass('Thycotic.ihawu.Business.DistributedEngine.SS.SiteReadyResult');
+}
+if (typeof(Thycotic.ihawu.Business.AjaxTypes.NumDomainUsersResult) === 'undefined') {
+Thycotic.ihawu.Business.AjaxTypes.NumDomainUsersResult=gtc("Thycotic.ihawu.Business.AjaxTypes.NumDomainUsersResult");
+Thycotic.ihawu.Business.AjaxTypes.NumDomainUsersResult.registerClass('Thycotic.ihawu.Business.AjaxTypes.NumDomainUsersResult');
+}
+if (typeof(Thycotic.ihawu.Business.AjaxTypes.DualApprovalResult) === 'undefined') {
+Thycotic.ihawu.Business.AjaxTypes.DualApprovalResult=gtc("Thycotic.ihawu.Business.AjaxTypes.DualApprovalResult");
+Thycotic.ihawu.Business.AjaxTypes.DualApprovalResult.registerClass('Thycotic.ihawu.Business.AjaxTypes.DualApprovalResult');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.Logic.Areas.PasswordTypes.Models');
+if (typeof(Thycotic.ihawu.Business.Logic.Areas.PasswordTypes.Models.PasswordTypeSettingForDisplay) === 'undefined') {
+Thycotic.ihawu.Business.Logic.Areas.PasswordTypes.Models.PasswordTypeSettingForDisplay=gtc("Thycotic.ihawu.Business.Logic.Areas.PasswordTypes.Models.PasswordTypeSettingForDisplay");
+Thycotic.ihawu.Business.Logic.Areas.PasswordTypes.Models.PasswordTypeSettingForDisplay.registerClass('Thycotic.ihawu.Business.Logic.Areas.PasswordTypes.Models.PasswordTypeSettingForDisplay');
+}
+if (typeof(Thycotic.ihawu.Business.Logic.Areas.PasswordTypes.Models.PasswordTypeSettingMap) === 'undefined') {
+Thycotic.ihawu.Business.Logic.Areas.PasswordTypes.Models.PasswordTypeSettingMap=gtc("Thycotic.ihawu.Business.Logic.Areas.PasswordTypes.Models.PasswordTypeSettingMap");
+Thycotic.ihawu.Business.Logic.Areas.PasswordTypes.Models.PasswordTypeSettingMap.registerClass('Thycotic.ihawu.Business.Logic.Areas.PasswordTypes.Models.PasswordTypeSettingMap');
+}
+if (typeof(Thycotic.ihawu.Business.DistributedEngine.SS.ManageEnginesInformation) === 'undefined') {
+Thycotic.ihawu.Business.DistributedEngine.SS.ManageEnginesInformation=gtc("Thycotic.ihawu.Business.DistributedEngine.SS.ManageEnginesInformation");
+Thycotic.ihawu.Business.DistributedEngine.SS.ManageEnginesInformation.registerClass('Thycotic.ihawu.Business.DistributedEngine.SS.ManageEnginesInformation');
+}
+if (typeof(Thycotic.ihawu.Business.DistributedEngine.SS.SiteConnectorCredentials) === 'undefined') {
+Thycotic.ihawu.Business.DistributedEngine.SS.SiteConnectorCredentials=gtc("Thycotic.ihawu.Business.DistributedEngine.SS.SiteConnectorCredentials");
+Thycotic.ihawu.Business.DistributedEngine.SS.SiteConnectorCredentials.registerClass('Thycotic.ihawu.Business.DistributedEngine.SS.SiteConnectorCredentials');
+}
+if (typeof(Thycotic.ihawu.Business.SecretType) === 'undefined') {
+Thycotic.ihawu.Business.SecretType=gtc("Thycotic.ihawu.Business.SecretType");
+Thycotic.ihawu.Business.SecretType.registerClass('Thycotic.ihawu.Business.SecretType');
+}
+if (typeof(Thycotic.ihawu.Business.AjaxTypes.GetSecretItemValueResult) === 'undefined') {
+Thycotic.ihawu.Business.AjaxTypes.GetSecretItemValueResult=gtc("Thycotic.ihawu.Business.AjaxTypes.GetSecretItemValueResult");
+Thycotic.ihawu.Business.AjaxTypes.GetSecretItemValueResult.registerClass('Thycotic.ihawu.Business.AjaxTypes.GetSecretItemValueResult');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.PasswordGeneration');
+if (typeof(Thycotic.ihawu.Business.PasswordGeneration.GeneratePasswordResult) === 'undefined') {
+Thycotic.ihawu.Business.PasswordGeneration.GeneratePasswordResult=gtc("Thycotic.ihawu.Business.PasswordGeneration.GeneratePasswordResult");
+Thycotic.ihawu.Business.PasswordGeneration.GeneratePasswordResult.registerClass('Thycotic.ihawu.Business.PasswordGeneration.GeneratePasswordResult');
+}
+if (typeof(Thycotic.ihawu.Business.AjaxTypes.GetUsersResult) === 'undefined') {
+Thycotic.ihawu.Business.AjaxTypes.GetUsersResult=gtc("Thycotic.ihawu.Business.AjaxTypes.GetUsersResult");
+Thycotic.ihawu.Business.AjaxTypes.GetUsersResult.registerClass('Thycotic.ihawu.Business.AjaxTypes.GetUsersResult');
+}
+if (typeof(Thycotic.AppCore.AutoCompleteItem) === 'undefined') {
+Thycotic.AppCore.AutoCompleteItem=gtc("Thycotic.AppCore.AutoCompleteItem");
+Thycotic.AppCore.AutoCompleteItem.registerClass('Thycotic.AppCore.AutoCompleteItem');
+}
+if (typeof(Thycotic.ihawu.Business.Models.KeyReEncryptionProgress) === 'undefined') {
+Thycotic.ihawu.Business.Models.KeyReEncryptionProgress=gtc("Thycotic.ihawu.Business.Models.KeyReEncryptionProgress");
+Thycotic.ihawu.Business.Models.KeyReEncryptionProgress.registerClass('Thycotic.ihawu.Business.Models.KeyReEncryptionProgress');
+}
+Type.registerNamespace('Thycotic.AppCore.JavascriptUI');
+if (typeof(Thycotic.AppCore.JavascriptUI.OUWrapper) === 'undefined') {
+Thycotic.AppCore.JavascriptUI.OUWrapper=gtc("Thycotic.AppCore.JavascriptUI.OUWrapper");
+Thycotic.AppCore.JavascriptUI.OUWrapper.registerClass('Thycotic.AppCore.JavascriptUI.OUWrapper');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.Discovery');
+if (typeof(Thycotic.ihawu.Business.Discovery.ComputerDependencySecretWrapper) === 'undefined') {
+Thycotic.ihawu.Business.Discovery.ComputerDependencySecretWrapper=gtc("Thycotic.ihawu.Business.Discovery.ComputerDependencySecretWrapper");
+Thycotic.ihawu.Business.Discovery.ComputerDependencySecretWrapper.registerClass('Thycotic.ihawu.Business.Discovery.ComputerDependencySecretWrapper');
+}
+if (typeof(Thycotic.ihawu.Business.Webservices.SecretDependencyGroupWithDependencies) === 'undefined') {
+Thycotic.ihawu.Business.Webservices.SecretDependencyGroupWithDependencies=gtc("Thycotic.ihawu.Business.Webservices.SecretDependencyGroupWithDependencies");
+Thycotic.ihawu.Business.Webservices.SecretDependencyGroupWithDependencies.registerClass('Thycotic.ihawu.Business.Webservices.SecretDependencyGroupWithDependencies');
+}
+if (typeof(Thycotic.ihawu.Business.Discovery.ComputerAccountSecretWrapper) === 'undefined') {
+Thycotic.ihawu.Business.Discovery.ComputerAccountSecretWrapper=gtc("Thycotic.ihawu.Business.Discovery.ComputerAccountSecretWrapper");
+Thycotic.ihawu.Business.Discovery.ComputerAccountSecretWrapper.registerClass('Thycotic.ihawu.Business.Discovery.ComputerAccountSecretWrapper');
+}
+if (typeof(Thycotic.ihawu.Business.Webservices.AccountResult) === 'undefined') {
+Thycotic.ihawu.Business.Webservices.AccountResult=gtc("Thycotic.ihawu.Business.Webservices.AccountResult");
+Thycotic.ihawu.Business.Webservices.AccountResult.registerClass('Thycotic.ihawu.Business.Webservices.AccountResult');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.Discovery.Models');
+if (typeof(Thycotic.ihawu.Business.Discovery.Models.ComputerScanChecker) === 'undefined') {
+Thycotic.ihawu.Business.Discovery.Models.ComputerScanChecker=gtc("Thycotic.ihawu.Business.Discovery.Models.ComputerScanChecker");
+Thycotic.ihawu.Business.Discovery.Models.ComputerScanChecker.registerClass('Thycotic.ihawu.Business.Discovery.Models.ComputerScanChecker');
+}
+if (typeof(Thycotic.ihawu.Business.DiscoveryColumnCheckboxDisplay) === 'undefined') {
+Thycotic.ihawu.Business.DiscoveryColumnCheckboxDisplay=gtc("Thycotic.ihawu.Business.DiscoveryColumnCheckboxDisplay");
+Thycotic.ihawu.Business.DiscoveryColumnCheckboxDisplay.registerClass('Thycotic.ihawu.Business.DiscoveryColumnCheckboxDisplay');
+}
+if (typeof(Thycotic.ihawu.Business.AjaxTypes.DiscoveryImportInfoJson) === 'undefined') {
+Thycotic.ihawu.Business.AjaxTypes.DiscoveryImportInfoJson=gtc("Thycotic.ihawu.Business.AjaxTypes.DiscoveryImportInfoJson");
+Thycotic.ihawu.Business.AjaxTypes.DiscoveryImportInfoJson.registerClass('Thycotic.ihawu.Business.AjaxTypes.DiscoveryImportInfoJson');
+}
+Type.registerNamespace('Thycotic.Discovery.Core.Elements');
+if (typeof(Thycotic.Discovery.Core.Elements.DefaultDiscoverySetting) === 'undefined') {
+Thycotic.Discovery.Core.Elements.DefaultDiscoverySetting=gtc("Thycotic.Discovery.Core.Elements.DefaultDiscoverySetting");
+Thycotic.Discovery.Core.Elements.DefaultDiscoverySetting.registerClass('Thycotic.Discovery.Core.Elements.DefaultDiscoverySetting');
+}
+if (typeof(Thycotic.ihawu.Business.AjaxTypes.ComputerScanLogWrapper) === 'undefined') {
+Thycotic.ihawu.Business.AjaxTypes.ComputerScanLogWrapper=gtc("Thycotic.ihawu.Business.AjaxTypes.ComputerScanLogWrapper");
+Thycotic.ihawu.Business.AjaxTypes.ComputerScanLogWrapper.registerClass('Thycotic.ihawu.Business.AjaxTypes.ComputerScanLogWrapper');
+}
+if (typeof(Thycotic.ihawu.Business.Discovery.DiscoveryImportDto) === 'undefined') {
+Thycotic.ihawu.Business.Discovery.DiscoveryImportDto=gtc("Thycotic.ihawu.Business.Discovery.DiscoveryImportDto");
+Thycotic.ihawu.Business.Discovery.DiscoveryImportDto.registerClass('Thycotic.ihawu.Business.Discovery.DiscoveryImportDto');
+}
+if (typeof(Thycotic.ihawu.Business.DiscoveryImportResult) === 'undefined') {
+Thycotic.ihawu.Business.DiscoveryImportResult=gtc("Thycotic.ihawu.Business.DiscoveryImportResult");
+Thycotic.ihawu.Business.DiscoveryImportResult.registerClass('Thycotic.ihawu.Business.DiscoveryImportResult');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.Logic.Areas.PasswordRequirements.Models');
+if (typeof(Thycotic.ihawu.Business.Logic.Areas.PasswordRequirements.Models.PasswordRequirement) === 'undefined') {
+Thycotic.ihawu.Business.Logic.Areas.PasswordRequirements.Models.PasswordRequirement=gtc("Thycotic.ihawu.Business.Logic.Areas.PasswordRequirements.Models.PasswordRequirement");
+Thycotic.ihawu.Business.Logic.Areas.PasswordRequirements.Models.PasswordRequirement.registerClass('Thycotic.ihawu.Business.Logic.Areas.PasswordRequirements.Models.PasswordRequirement');
+}
+if (typeof(Thycotic.ihawu.Business.Logic.Areas.PasswordRequirements.Models.PasswordRequirementRule) === 'undefined') {
+Thycotic.ihawu.Business.Logic.Areas.PasswordRequirements.Models.PasswordRequirementRule=gtc("Thycotic.ihawu.Business.Logic.Areas.PasswordRequirements.Models.PasswordRequirementRule");
+Thycotic.ihawu.Business.Logic.Areas.PasswordRequirements.Models.PasswordRequirementRule.registerClass('Thycotic.ihawu.Business.Logic.Areas.PasswordRequirements.Models.PasswordRequirementRule');
+}
+if (typeof(Thycotic.ihawu.Business.Models.DiscoveryImportRule) === 'undefined') {
+Thycotic.ihawu.Business.Models.DiscoveryImportRule=gtc("Thycotic.ihawu.Business.Models.DiscoveryImportRule");
+Thycotic.ihawu.Business.Models.DiscoveryImportRule.registerClass('Thycotic.ihawu.Business.Models.DiscoveryImportRule');
+}
+if (typeof(Thycotic.ihawu.Business.AjaxTypes.AjaxSecretDependencyTemplate) === 'undefined') {
+Thycotic.ihawu.Business.AjaxTypes.AjaxSecretDependencyTemplate=gtc("Thycotic.ihawu.Business.AjaxTypes.AjaxSecretDependencyTemplate");
+Thycotic.ihawu.Business.AjaxTypes.AjaxSecretDependencyTemplate.registerClass('Thycotic.ihawu.Business.AjaxTypes.AjaxSecretDependencyTemplate');
+}
+if (typeof(Thycotic.ihawu.Business.AjaxTypes.AjaxSecretDependencyChanger) === 'undefined') {
+Thycotic.ihawu.Business.AjaxTypes.AjaxSecretDependencyChanger=gtc("Thycotic.ihawu.Business.AjaxTypes.AjaxSecretDependencyChanger");
+Thycotic.ihawu.Business.AjaxTypes.AjaxSecretDependencyChanger.registerClass('Thycotic.ihawu.Business.AjaxTypes.AjaxSecretDependencyChanger');
+}
+if (typeof(Thycotic.ihawu.Business.AjaxTypes.AjaxDependencyConfigInfo) === 'undefined') {
+Thycotic.ihawu.Business.AjaxTypes.AjaxDependencyConfigInfo=gtc("Thycotic.ihawu.Business.AjaxTypes.AjaxDependencyConfigInfo");
+Thycotic.ihawu.Business.AjaxTypes.AjaxDependencyConfigInfo.registerClass('Thycotic.ihawu.Business.AjaxTypes.AjaxDependencyConfigInfo');
+}
+if (typeof(Thycotic.ihawu.Business.AjaxTypes.AjaxSecretDependency) === 'undefined') {
+Thycotic.ihawu.Business.AjaxTypes.AjaxSecretDependency=gtc("Thycotic.ihawu.Business.AjaxTypes.AjaxSecretDependency");
+Thycotic.ihawu.Business.AjaxTypes.AjaxSecretDependency.registerClass('Thycotic.ihawu.Business.AjaxTypes.AjaxSecretDependency');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.Reports');
+if (typeof(Thycotic.ihawu.Business.Reports.ReportSchedule) === 'undefined') {
+Thycotic.ihawu.Business.Reports.ReportSchedule=gtc("Thycotic.ihawu.Business.Reports.ReportSchedule");
+Thycotic.ihawu.Business.Reports.ReportSchedule.registerClass('Thycotic.ihawu.Business.Reports.ReportSchedule');
+}
+if (typeof(Thycotic.ihawu.Business.Reports.UserGroup) === 'undefined') {
+Thycotic.ihawu.Business.Reports.UserGroup=gtc("Thycotic.ihawu.Business.Reports.UserGroup");
+Thycotic.ihawu.Business.Reports.UserGroup.registerClass('Thycotic.ihawu.Business.Reports.UserGroup');
+}
+if (typeof(Thycotic.ihawu.Business.Webservices.NameIdPair) === 'undefined') {
+Thycotic.ihawu.Business.Webservices.NameIdPair=gtc("Thycotic.ihawu.Business.Webservices.NameIdPair");
+Thycotic.ihawu.Business.Webservices.NameIdPair.registerClass('Thycotic.ihawu.Business.Webservices.NameIdPair');
+}
+if (typeof(Thycotic.ihawu.Business.Models.UserScript) === 'undefined') {
+Thycotic.ihawu.Business.Models.UserScript=gtc("Thycotic.ihawu.Business.Models.UserScript");
+Thycotic.ihawu.Business.Models.UserScript.registerClass('Thycotic.ihawu.Business.Models.UserScript');
+}
+Type.registerNamespace('Thycotic.ihawu.Entities.Areas.SSHProxy.SUPM');
+if (typeof(Thycotic.ihawu.Entities.Areas.SSHProxy.SUPM.SshCommandMenuDto) === 'undefined') {
+Thycotic.ihawu.Entities.Areas.SSHProxy.SUPM.SshCommandMenuDto=gtc("Thycotic.ihawu.Entities.Areas.SSHProxy.SUPM.SshCommandMenuDto");
+Thycotic.ihawu.Entities.Areas.SSHProxy.SUPM.SshCommandMenuDto.registerClass('Thycotic.ihawu.Entities.Areas.SSHProxy.SUPM.SshCommandMenuDto');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.SecretSearchFilters');
+if (typeof(Thycotic.ihawu.Business.SecretSearchFilters.SecretSearchFilter) === 'undefined') {
+Thycotic.ihawu.Business.SecretSearchFilters.SecretSearchFilter=gtc("Thycotic.ihawu.Business.SecretSearchFilters.SecretSearchFilter");
+Thycotic.ihawu.Business.SecretSearchFilters.SecretSearchFilter.registerClass('Thycotic.ihawu.Business.SecretSearchFilters.SecretSearchFilter');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models');
+if (typeof(Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoveryItemScanner) === 'undefined') {
+Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoveryItemScanner=gtc("Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoveryItemScanner");
+Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoveryItemScanner.registerClass('Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoveryItemScanner');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.ScanItems.Models');
+if (typeof(Thycotic.ihawu.Business.ScanItems.Models.ScanItemTemplate) === 'undefined') {
+Thycotic.ihawu.Business.ScanItems.Models.ScanItemTemplate=gtc("Thycotic.ihawu.Business.ScanItems.Models.ScanItemTemplate");
+Thycotic.ihawu.Business.ScanItems.Models.ScanItemTemplate.registerClass('Thycotic.ihawu.Business.ScanItems.Models.ScanItemTemplate');
+}
+if (typeof(Thycotic.ihawu.Business.DiscoveryCommandSet) === 'undefined') {
+Thycotic.ihawu.Business.DiscoveryCommandSet=gtc("Thycotic.ihawu.Business.DiscoveryCommandSet");
+Thycotic.ihawu.Business.DiscoveryCommandSet.registerClass('Thycotic.ihawu.Business.DiscoveryCommandSet');
+}
+if (typeof(Thycotic.ihawu.Business.DiscoveryScanner) === 'undefined') {
+Thycotic.ihawu.Business.DiscoveryScanner=gtc("Thycotic.ihawu.Business.DiscoveryScanner");
+Thycotic.ihawu.Business.DiscoveryScanner.registerClass('Thycotic.ihawu.Business.DiscoveryScanner');
+}
+if (typeof(Thycotic.ihawu.Business.DiscoveryScanType) === 'undefined') {
+Thycotic.ihawu.Business.DiscoveryScanType=gtc("Thycotic.ihawu.Business.DiscoveryScanType");
+Thycotic.ihawu.Business.DiscoveryScanType.registerClass('Thycotic.ihawu.Business.DiscoveryScanType');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.DiscoveryExtended');
+if (typeof(Thycotic.ihawu.Business.DiscoveryExtended.DefaultDiscoverySettingForDisplay) === 'undefined') {
+Thycotic.ihawu.Business.DiscoveryExtended.DefaultDiscoverySettingForDisplay=gtc("Thycotic.ihawu.Business.DiscoveryExtended.DefaultDiscoverySettingForDisplay");
+Thycotic.ihawu.Business.DiscoveryExtended.DefaultDiscoverySettingForDisplay.registerClass('Thycotic.ihawu.Business.DiscoveryExtended.DefaultDiscoverySettingForDisplay');
+}
+if (typeof(Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoverySourceScannerMapWithScanner) === 'undefined') {
+Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoverySourceScannerMapWithScanner=gtc("Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoverySourceScannerMapWithScanner");
+Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoverySourceScannerMapWithScanner.registerClass('Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoverySourceScannerMapWithScanner');
+}
+if (typeof(Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoveryScannerCredentialMap) === 'undefined') {
+Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoveryScannerCredentialMap=gtc("Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoveryScannerCredentialMap");
+Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoveryScannerCredentialMap.registerClass('Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoveryScannerCredentialMap');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.Validation');
+if (typeof(Thycotic.ihawu.Business.Validation.AjaxValidationResult) === 'undefined') {
+Thycotic.ihawu.Business.Validation.AjaxValidationResult=gtc("Thycotic.ihawu.Business.Validation.AjaxValidationResult");
+Thycotic.ihawu.Business.Validation.AjaxValidationResult.registerClass('Thycotic.ihawu.Business.Validation.AjaxValidationResult');
+}
+if (typeof(Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoverySourceScannerMap) === 'undefined') {
+Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoverySourceScannerMap=gtc("Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoverySourceScannerMap");
+Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoverySourceScannerMap.registerClass('Thycotic.ihawu.Business.Logic.Areas.DiscoverySources.Models.DiscoverySourceScannerMap');
+}
+Type.registerNamespace('Thycotic.ihawu.Entities.Areas.DiscoverySources');
+if (typeof(Thycotic.ihawu.Entities.Areas.DiscoverySources.DiscoverySource) === 'undefined') {
+Thycotic.ihawu.Entities.Areas.DiscoverySources.DiscoverySource=gtc("Thycotic.ihawu.Entities.Areas.DiscoverySources.DiscoverySource");
+Thycotic.ihawu.Entities.Areas.DiscoverySources.DiscoverySource.registerClass('Thycotic.ihawu.Entities.Areas.DiscoverySources.DiscoverySource');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.Logic.Areas.ScanItems.Models');
+if (typeof(Thycotic.ihawu.Business.Logic.Areas.ScanItems.Models.ScanItemField) === 'undefined') {
+Thycotic.ihawu.Business.Logic.Areas.ScanItems.Models.ScanItemField=gtc("Thycotic.ihawu.Business.Logic.Areas.ScanItems.Models.ScanItemField");
+Thycotic.ihawu.Business.Logic.Areas.ScanItems.Models.ScanItemField.registerClass('Thycotic.ihawu.Business.Logic.Areas.ScanItems.Models.ScanItemField');
+}
+if (typeof(Thycotic.ihawu.Business.ScanItems.Models.ScanItemTemplateAssociatedMap) === 'undefined') {
+Thycotic.ihawu.Business.ScanItems.Models.ScanItemTemplateAssociatedMap=gtc("Thycotic.ihawu.Business.ScanItems.Models.ScanItemTemplateAssociatedMap");
+Thycotic.ihawu.Business.ScanItems.Models.ScanItemTemplateAssociatedMap.registerClass('Thycotic.ihawu.Business.ScanItems.Models.ScanItemTemplateAssociatedMap');
+}
+Type.registerNamespace('Thycotic.ihawu.Business.Dependencies.Models');
+if (typeof(Thycotic.ihawu.Business.Dependencies.Models.ScriptConditionType) === 'undefined') {
+Thycotic.ihawu.Business.Dependencies.Models.ScriptConditionType = function() { throw Error.invalidOperation(); }
+Thycotic.ihawu.Business.Dependencies.Models.ScriptConditionType.prototype = {PasswordChange: 1,VerifyPasswordChange: 2,PostSuccessfulChange: 3,PostFailureChange: 4}
+Thycotic.ihawu.Business.Dependencies.Models.ScriptConditionType.registerEnum('Thycotic.ihawu.Business.Dependencies.Models.ScriptConditionType', true);
+}
+if (typeof(Thycotic.ihawu.Business.SecretSessions.SessionActions) === 'undefined') {
+Thycotic.ihawu.Business.SecretSessions.SessionActions = function() { throw Error.invalidOperation(); }
+Thycotic.ihawu.Business.SecretSessions.SessionActions.prototype = {Terminate: 1,LimitSession: 2,MessageOnly: 3}
+Thycotic.ihawu.Business.SecretSessions.SessionActions.registerEnum('Thycotic.ihawu.Business.SecretSessions.SessionActions', true);
+}

@@ -1,0 +1,27 @@
+{
+   "background": {
+      "persistent": false,
+      "scripts": [ "node_modules/idb-keyval/dist/idb-keyval-min.js", "scripts/general.js", "scripts/eventPage.js" ]
+   },
+   "browser_action": {
+      "default_popup": "ElementLocator.html",
+      "default_title": "Element Locator"
+   },
+   "content_scripts": [ {
+      "js": [ "scripts/general.js", "scripts/contentScript.js" ],
+      "matches": [ "http://*/*", "https://*/*" ]
+   } ],
+   "description": "Locate and save web elements and get their xpath/cssSelector code",
+   "icons": {
+      "128": "images/elementsLocator128.png",
+      "16": "images/elementsLocator16.png",
+      "48": "images/elementsLocator48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArxPeL9vJsXmFpd9Vx5OTiBHzFm2As/skss7lq4Pb/Do8D6WohTwfmoSMnDpAV5MMU8pTmhqsfX+iAbXgaEwBIxErXwl8Bf8aSmLaQ7BaqVbpNwsz6Vb7Qm/4htvaly6HdtwJC8r9hczDKvWKZr74ObKsMgXz9QfZpzxQkO6BxtON9bBNo/7qA7cjFHpB/9iXbeXgopGoAuokYFyxV+VkBWKkbihvRQKNfjQMQbMHxRB/GgUbE8O9NWlWmZmBzEA6eMfcZjHTeWydLy+An6QU7grpCqupP54NtBECzAW3dB7SIE6NMhI7yNeptxvMDS5naP0IUzJyX7zZibcuoleHHwIDAQAB",
+   "manifest_version": 2,
+   "name": "Element Locator",
+   "permissions": [ "activeTab", "contextMenus" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.8",
+   "web_accessible_resources": [ "css/general.css" ]
+}

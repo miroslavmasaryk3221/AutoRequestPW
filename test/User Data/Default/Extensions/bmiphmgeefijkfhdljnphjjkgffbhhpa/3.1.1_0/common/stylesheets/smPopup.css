@@ -1,0 +1,108 @@
+.sm-popup,
+.sm-popup * {
+  box-sizing: border-box;
+}
+
+.sm-popup {
+  box-shadow: 0 1px 10px 1px rgba(0, 0, 0, 0.2);
+  border: solid 1px var(--sm9-gray) !important;
+}
+
+.x-panel-ghost.sm-popup .x-window-header, /* <3 sm9 css logic */
+.x-window.sm-popup .x-window-header {
+  padding-left: 5px;
+  white-space: pre;
+}
+
+.sm-popup .x-window-bc {
+  display: none !important;
+}
+
+.sm-popup::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.sm-popup:not(.x-panel-ghost) .x-window-header {
+  background-color: var(--sm9-offwhite);
+  border-bottom: 2px solid var(--sm9-primary-color);
+}
+
+/*
+.sm-popup .x-panel-ghost .x-window-header .x-tool.x-tool-toggle  */
+.sm-popup .x-window-header .x-tool.x-tool-toggle {
+  background: none !important;
+  color: var(--sm9-midgray);
+  font-size: 18px;
+  font-family: icons;
+  vertical-align: middle;
+  margin: 9px 6px 0 0;
+}
+
+.sm-popup .x-window-header .x-tool.x-tool-toggle:hover {
+  color: var(--sm9-primary-color);
+}
+
+.sm-popup .x-window-header .x-tool.x-tool-toggle::before {
+  content: '\e922';
+}
+
+/*.x-panel-ghost .smartease-logo,*/
+.sm-popup .smartease-logo {
+  top: -5px;
+  margin-right: 4px;
+  pointer-events: none;
+}
+/* Fix ugly collapse icon on ghost - ext ghost doesn't carry over ID */
+/*
+.x-panel-ghost .x-tool.x-tool-toggle {
+  margin-top: 10px;
+  margin-right: 5px;
+
+  background: none !important;
+}
+.x-panel-ghost .x-tool.x-tool-toggle::before {
+  content: '\e922';
+
+  font-family: icons;
+  font-size: 18px;
+  vertical-align: middle;
+  color: var(--sm9-midgray);
+}
+*/
+.sm-popup.x-panel-ghost .x-window-tl {
+  padding-left: 1px;
+}
+
+.sm-popup.x-panel-ghost .x-window-tr {
+  padding-right: 0px;
+}
+
+.sm-popup .x-panel-collapsed .x-window-header .x-tool.x-tool-toggle::before {
+  content: '\e925';
+}
+
+.sm-popup .x-panel-collapsed,
+.sm-popup .x-panel-collapsed > .x-window-tl {
+  border-bottom: none;
+}
+
+.sm-popup-body {
+  background-color: var(--sm9-offwhite);
+}
+
+.sm-popup-body.padding-1 {
+  padding: 1px;
+}
+
+/* Fixing Webtier's bugs one rule a time */
+.sm-popup .x-tool-restore {
+  margin-right: 5px;
+}
+.sm-popup .x-tool-restore-over {
+  background: url('https://smweb.telekom.de/sm-prod/images/9.62.1012/default/panel/tool-restore-hover.png') no-repeat 0 0;
+}

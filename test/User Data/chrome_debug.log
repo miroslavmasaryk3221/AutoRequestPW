@@ -1,0 +1,9 @@
+[7452:15124:0512/172520.726:ERROR:device_event_log_impl.cc(214)] [17:25:20.725] Bluetooth: bluetooth_adapter_winrt.cc:712 GetBluetoothAdapterStaticsActivationFactory failed: Class not registered (0x80040154)
+[7452:15124:0512/172520.772:ERROR:device_event_log_impl.cc(214)] [17:25:20.736] FIDO: webauthn_api.cc:54 Windows WebAuthn API failed to load
+[7452:15124:0512/172520.861:ERROR:device_event_log_impl.cc(214)] [17:25:20.861] USB: usb_device_handle_win.cc:1054 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[7452:15124:0512/172520.865:ERROR:device_event_log_impl.cc(214)] [17:25:20.864] USB: usb_device_handle_win.cc:1054 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[7452:15124:0512/172520.873:ERROR:device_event_log_impl.cc(214)] [17:25:20.872] USB: usb_device_handle_win.cc:1054 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[7452:15124:0512/172523.766:INFO:CONSOLE(75)] "200", source: https://otis-us.hypr.com/auth/resources/7.0.1/login/hypr/js/main.js?v=92cache4onlytheconnniebrokklynsiecxsddfgs (75)
+[7452:15124:0512/172525.722:INFO:CONSOLE(1)] "[doi info]doi sending start.", source: chrome-extension://jlhmfgmfgeifomenelglieieghnjghma/doi.js (1)
+[7452:15124:0512/172526.342:INFO:CONSOLE(1)] "[doi info]doi send data success.", source: chrome-extension://jlhmfgmfgeifomenelglieieghnjghma/doi.js (1)
+[7452:15124:0512/172545.715:WARNING:pref_notifier_impl.cc(40)] Pref observer for media_router.cast_allow_all_ips found at shutdown.

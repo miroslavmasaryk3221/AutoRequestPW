@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>SMartease Options</title>
+        <link rel='stylesheet' href='https://smweb.telekom.de/sm-prod/css/typography.css'>
+        <link rel='stylesheet' href='stylesheets/global.css'>
+        <link rel='stylesheet' href='options.css'>
+        <script type="text/javascript" src='classes/Operation.js'></script>
+        <script type="text/javascript" src='classes/Action.js'></script>
+        <script type="text/javascript" src='classes/Util.js'></script>
+        <script type="text/javascript" src='classes/Notifier.js'></script>
+        <script type="text/javascript" src='options.js'></script>
+    </head>
+    <body>
+        <div id='options_rules_edit_wrapper' class='popup_wrapper'>
+            <div class='popup'>
+                <div class='popup_header'>
+                    <div class='popup_title'>Import/Export</div>
+                    <div class='popup_title_close'><input type='button' id='rules_x' class='button_cancel' value='X' title='Close'/></div>
+                </div>
+                <div class='popup_body'>
+                    <div id='options_rules_edit'>
+                        <textarea id='NewruleJson' value='' rows='5' wrap='hard' aria-multiline='true' autofocus></textarea>
+                    </div>
+                    <div id='options_rules_buttons_container'>
+                        <div id='options_rules_copy_buttons'>
+                            <input id='rules_copy' class='button' type='button' title='Copy to Clipboard' value="&#xe985">
+                            <input id='rules_txt' class='button' type='button' title='Download as .txt' value="&#xe9c9">
+                        </div>
+                        <div id='options_rules_other_buttons'>
+                            <input id='import_options' type='button' class='button' value='Save'/>
+                            <input id='import_cancel' type='button' class='button_cancel' value='Cancel'/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id='options_title'><div class='smartease-logo' title='SMartease'></div><span>SMartease Options</span>
+            <div id='options_contact'><a href="https://yam.telekom.de/groups/smartease" target="_blank">Get in touch with us on YAM!</a></div>
+        </div>
+        <div id='options_body'>
+            <div id='options_autorefresh' class='options_box'>
+                <div id='options_autorefresh_title'>Auto refresh</div>
+                <div id='options_autorefresh_content'>
+                    <input id='autoRefresh' type='number' value='' title='Minutes, 0 = off, max: 60' placeholder='min' min='0' max='60' required></input>
+                    <input id='save_options' type='button' class='button' value='Save' disabled>
+                    Set the refresh interval of queues (minutes, 0 = off)
+                </div>
+            </div>
+            <div id='options_rules' class='options_box'>
+                <div id='options_rules_existing_title'>Ticket actions</div>
+                <input id="export_options" type="button" class='button' value='Import/Export'/>
+                Import or export ticket actions
+            </div>
+            <div id="options_disclaimer" class="options_box">
+                <div id="options_disclaimer_text">
+                    <div id="options_disclaimer_title">Disclaimer</div>SMartease is brought to you by <a href="https://yam.telekom.de/groups/asic-hu" target="_blank">ASIC HUNGARY</a> and is provided "as is". You understand that you install and use SMartease at your own discretion and risk.
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

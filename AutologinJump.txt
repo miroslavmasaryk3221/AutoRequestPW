@@ -1,0 +1,5 @@
+JumpLoginName
+wiwusername
+wiwpassword
+profiledirectory
+masaryk-a
