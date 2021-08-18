@@ -23,7 +23,7 @@ def main():
         #opening file for reading
         f = open('.\AutologinJumpo.json')
 
-        JumpLoginName = f.readline()  # notice that I didn't bother to save the returned string from readline()
+        JumpLoginName = f.readline()  
         wiwusername = f.readline()
         wiwpassword = f.readline()
         profiledirectory = f.readline()
@@ -45,8 +45,13 @@ def main():
         print("[v1.2 12/05/2021 All elements can be found now.")
         print("[v1.3 17/05/2021 Fixed unable to locate element while copying password. Explicit wait time raised up to 90 seconds]")
         print("      Chrome Browser set to start maximized")
-        print("[v1.4 11/006/2021  Powershell script now contains option for users with prefix otis.com\ on their accounts.]")
+        print("[v1.4 11/06/2021  Powershell script now contains option for users with prefix otis.com\ on their accounts.]")
         print("[Explicit wait time raised up to 300 seconds.]")
+        print("[v1.5 16.08/2021  Version optimized for nucleus users, option to choose between chrome versions added]")
+
+      
+
+        
 
         options = webdriver.ChromeOptions()
         options.add_argument("user-data-dir=" + profiledirectory)

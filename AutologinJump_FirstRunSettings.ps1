@@ -1,4 +1,18 @@
-﻿
+﻿function Write-FileContent {
+        [cmdletBinding()]
+        param(
+            [parameter(Mandatory = $true)]
+            [string]$FileToReplacePath,
+            [parameter(Mandatory = $true)]
+            [string]$TextToReplaceWith,
+            [parameter(Mandatory = $true)]
+            [string]$LineNumber,
+            [parameter(Mandatory = $true)]
+            [string]$TextToBeingWith        
+        )
+        $Read = Get-Content -Path $FileToReplacePath
+        $Read | ForEach-Object { if ($_.ReadCount -eq $LineNumber) { $_ -replace "'$TextToBeginWith'=.+'", "$TextToReplaceWith" }   else { $_ } } | Set-Content $FileToReplacePath
+    }
 
 
 function firstRun {
@@ -54,6 +68,22 @@ $findname='masaryk-a'
 (Get-Content -Path $filePath) -replace $findwiwname, $Wiwname -replace $finddir, $foldernamme  -replace $findwiwpass, $Wiwpass -replace $find, $JumpUserNames -replace $findname, $Accounta | Add-Content -Path $tempFilePath
 
 Move-Item -Path $tempFilePath -Destination $filePath1
+
+
+$ChromeNumber= Read-Host -Prompt "Please press 1 if you have Google Chrome version 90(default in nucleus) or press 2 for Google Chrome version 92"
+
+if ($ChromeNumber -eq 1) {
+$content = Get-Content -Path settings.ini
+$content[1] = "path = driver\chromedriver.exe"
+$content | Set-Content -Path settings.ini
+} 
+if ($ChromeNumber -eq 2) {
+$content = Get-Content -Path settings.ini
+$content[1] = "path = driver\chromedriver_92.exe"
+$content | Set-Content -Path settings.ini
+  }
+
+
                     }
 
 function CreateShortcut {

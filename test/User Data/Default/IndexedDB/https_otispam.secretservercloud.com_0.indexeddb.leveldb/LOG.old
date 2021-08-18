@@ -1,4 +1,15 @@
-2021/07/23-08:32:11.832 1dc8 Reusing MANIFEST C:\Users\MIMASARY\Desktop\AutologinPython\test\User Data\Default\IndexedDB\https_otispam.secretservercloud.com_0.indexeddb.leveldb/MANIFEST-000001
-2021/07/23-08:32:11.834 1dc8 Recovering log #534
-2021/07/23-08:32:11.836 1dc8 Reusing old log C:\Users\MIMASARY\Desktop\AutologinPython\test\User Data\Default\IndexedDB\https_otispam.secretservercloud.com_0.indexeddb.leveldb/000534.log 
-2021/07/23-08:32:11.836 1dc8 Delete type=2 #532
+2021/08/18-08:37:20.555 48ac Reusing MANIFEST C:\Users\A110144146\Desktop\AutologinPython\test\User Data\Default\IndexedDB\https_otispam.secretservercloud.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/08/18-08:37:20.560 48ac Recovering log #60
+2021/08/18-08:37:20.561 48ac Reusing old log C:\Users\A110144146\Desktop\AutologinPython\test\User Data\Default\IndexedDB\https_otispam.secretservercloud.com_0.indexeddb.leveldb/000060.log 
+2021/08/18-08:53:01.496 1e34 Level-0 table #64: started
+2021/08/18-08:53:01.556 1e34 Level-0 table #64: 30302 bytes OK
+2021/08/18-08:53:01.558 1e34 Delete type=0 #60
+2021/08/18-08:53:01.560 1e34 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2021/08/18-08:53:01.560 1e34 Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x06\x01\x1f\x02\x00\xa0m\x84\x80\xb5wB\x00\x01 \x00b\x003\x00c\x004\x007\x00c\x00d\x00d\x00c\x000\x00d\x00d\x004\x006\x008\x003\x00b\x006\x00c\x005\x00d\x005\x005\x00c\x002\x00e\x00b\x00f\x009\x004\x007\x00d' @ 5445 : 1
+2021/08/18-08:53:01.561 1e34 Compacting 1@1 + 1@2 files
+2021/08/18-08:53:01.566 1e34 Generated table #65@1: 207 keys, 17905 bytes
+2021/08/18-08:53:01.566 1e34 Compacted 1@1 + 1@2 files => 17905 bytes
+2021/08/18-08:53:01.567 1e34 compacted to: files[ 0 0 1 0 0 0 0 ]
+2021/08/18-08:53:01.568 1e34 Delete type=2 #58
+2021/08/18-08:53:01.568 1e34 Delete type=2 #64
+2021/08/18-08:53:01.571 1e34 Manual compaction at level-1 from '\x00\x06\x01\x1f\x02\x00\xa0m\x84\x80\xb5wB\x00\x01 \x00b\x003\x00c\x004\x007\x00c\x00d\x00d\x00c\x000\x00d\x00d\x004\x006\x008\x003\x00b\x006\x00c\x005\x00d\x005\x005\x00c\x002\x00e\x00b\x00f\x009\x004\x007\x00d' @ 5445 : 1 .. (end); will stop at (end)
