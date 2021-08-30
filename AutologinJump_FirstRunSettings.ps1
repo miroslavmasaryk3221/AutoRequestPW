@@ -1,20 +1,4 @@
-﻿function Write-FileContent {
-        [cmdletBinding()]
-        param(
-            [parameter(Mandatory = $true)]
-            [string]$FileToReplacePath,
-            [parameter(Mandatory = $true)]
-            [string]$TextToReplaceWith,
-            [parameter(Mandatory = $true)]
-            [string]$LineNumber,
-            [parameter(Mandatory = $true)]
-            [string]$TextToBeingWith        
-        )
-        $Read = Get-Content -Path $FileToReplacePath
-        $Read | ForEach-Object { if ($_.ReadCount -eq $LineNumber) { $_ -replace "'$TextToBeginWith'=.+'", "$TextToReplaceWith" }   else { $_ } } | Set-Content $FileToReplacePath
-    }
-
-
+﻿
 function firstRun {
 
 #prompt for jump username
@@ -70,7 +54,8 @@ $findname='masaryk-a'
 Move-Item -Path $tempFilePath -Destination $filePath1
 
 
-$ChromeNumber= Read-Host -Prompt "Please press 1 if you have Google Chrome version 90(default in nucleus) or press 2 for Google Chrome version 92"
+$ChromeNumber= Read-Host -Prompt "Please press 1 if you have Google Chrome version 90 or press 2 for Google Chrome version 92
+ Version info you can find by typing in chrome browser this: chrome://version "
 
 if ($ChromeNumber -eq 1) {
 $content = Get-Content -Path settings.ini
@@ -176,7 +161,8 @@ cls
 Write-Host  "
     Curent Version v1.2
 [Changelog] v 1.1 script creation for Selenium IDE 
-            v 1.2 script creation for Selenium IDEedited for working with Python
+            v 1.2 script creation for Selenium IDE edited for working with Python
+            change for nucleus users, script was optimized.
 
    Script created by Miroslav Masaryk 
 

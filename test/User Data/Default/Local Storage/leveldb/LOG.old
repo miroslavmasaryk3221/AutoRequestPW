@@ -1,6 +1,15 @@
-2021/08/17-08:37:11.147 3220 Reusing MANIFEST C:\Users\A110144146\Desktop\AutologinPython\test\User Data\Default\Local Storage\leveldb/MANIFEST-000001
-2021/08/17-08:37:11.152 3220 Recovering log #4
-2021/08/17-08:37:11.154 3220 Reusing old log C:\Users\A110144146\Desktop\AutologinPython\test\User Data\Default\Local Storage\leveldb/000004.log 
-2021/08/17-08:37:58.089 3220 Level-0 table #8: started
-2021/08/17-08:37:58.097 3220 Level-0 table #8: 54904 bytes OK
-2021/08/17-08:37:58.104 3220 Delete type=0 #4
+2021/08/27-08:45:52.046 13f8 Reusing MANIFEST C:\Users\A110144146\Desktop\AutologinPython\test\User Data\Default\Local Storage\leveldb/MANIFEST-000001
+2021/08/27-08:45:52.055 13f8 Recovering log #29
+2021/08/27-08:45:52.058 13f8 Reusing old log C:\Users\A110144146\Desktop\AutologinPython\test\User Data\Default\Local Storage\leveldb/000029.log 
+2021/08/27-08:46:40.385 13f8 Level-0 table #33: started
+2021/08/27-08:46:40.393 13f8 Level-0 table #33: 51951 bytes OK
+2021/08/27-08:46:40.395 13f8 Delete type=0 #29
+2021/08/27-08:46:40.399 13f8 Compacting 4@0 + 1@1 files
+2021/08/27-08:46:40.410 13f8 Generated table #34@0: 132 keys, 62539 bytes
+2021/08/27-08:46:40.410 13f8 Compacted 4@0 + 1@1 files => 62539 bytes
+2021/08/27-08:46:40.411 13f8 compacted to: files[ 0 1 1 0 0 0 0 ]
+2021/08/27-08:46:40.415 13f8 Delete type=2 #21
+2021/08/27-08:46:40.415 13f8 Delete type=2 #24
+2021/08/27-08:46:40.415 13f8 Delete type=2 #27
+2021/08/27-08:46:40.416 13f8 Delete type=2 #30
+2021/08/27-08:46:40.416 13f8 Delete type=2 #33

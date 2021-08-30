@@ -88,7 +88,7 @@ def main():
         WebDriverWait(driver, 90).until(expected_conditions.presence_of_element_located((By.XPATH, "//img[@alt=\'RDP Client\']"))).click()
 
         time.sleep(20)
-        driver.Close()
+        driver.quit()
 
 
 if __name__ == "__main__":

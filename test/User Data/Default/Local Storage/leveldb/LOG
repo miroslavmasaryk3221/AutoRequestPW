@@ -1,6 +1,6 @@
-2021/08/18-08:13:32.374 bbc Reusing MANIFEST C:\Users\A110144146\Desktop\AutologinPython\test\User Data\Default\Local Storage\leveldb/MANIFEST-000001
-2021/08/18-08:13:32.380 bbc Recovering log #7
-2021/08/18-08:13:32.383 bbc Reusing old log C:\Users\A110144146\Desktop\AutologinPython\test\User Data\Default\Local Storage\leveldb/000007.log 
-2021/08/18-08:14:41.085 5134 Level-0 table #11: started
-2021/08/18-08:14:41.145 5134 Level-0 table #11: 51701 bytes OK
-2021/08/18-08:14:41.152 5134 Delete type=0 #7
+2021/08/30-10:19:26.780 2358 Reusing MANIFEST C:\Users\A110144146\Desktop\AutologinPython\test\User Data\Default\Local Storage\leveldb/MANIFEST-000001
+2021/08/30-10:19:26.793 2358 Recovering log #32
+2021/08/30-10:19:26.799 2358 Reusing old log C:\Users\A110144146\Desktop\AutologinPython\test\User Data\Default\Local Storage\leveldb/000032.log 
+2021/08/30-10:20:21.073 3b20 Level-0 table #37: started
+2021/08/30-10:20:21.086 3b20 Level-0 table #37: 53014 bytes OK
+2021/08/30-10:20:21.089 3b20 Delete type=0 #32
