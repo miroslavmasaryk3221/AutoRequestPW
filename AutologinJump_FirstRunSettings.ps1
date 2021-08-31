@@ -54,22 +54,16 @@ $findname='masaryk-a'
 Move-Item -Path $tempFilePath -Destination $filePath1
 
 
-$ChromeNumber= Read-Host -Prompt "Please press 1 if you have Google Chrome version 90 or press 2 for Google Chrome version 92
- Version info you can find by typing in chrome browser this: chrome://version "
+$ChromeNumber= Write-Host "Downloading current version of chromedriver"
 
-if ($ChromeNumber -eq 1) {
-$content = Get-Content -Path settings.ini
-$content[1] = "path = driver\chromedriver.exe"
-$content | Set-Content -Path settings.ini
-} 
-if ($ChromeNumber -eq 2) {
-$content = Get-Content -Path settings.ini
-$content[1] = "path = driver\chromedriver_92.exe"
-$content | Set-Content -Path settings.ini
+
+
+.\InstallChromeDriver.ps1 -ChromeDriverOutputPath .\driver\chromedriver.exe -ForceDownload
+
   }
 
 
-                    }
+                    
 
 function CreateShortcut {
 #Function to create shortcut on desktop
