@@ -1,13 +1,13 @@
-2021/08/31-08:49:01.868 4294 Reusing MANIFEST C:\Users\A110144146\Desktop\AutologinPython\test\User Data\Default\IndexedDB\https_otispam.secretservercloud.com_0.indexeddb.leveldb/MANIFEST-000001
-2021/08/31-08:49:01.875 4294 Recovering log #107
-2021/08/31-08:49:01.881 4294 Reusing old log C:\Users\A110144146\Desktop\AutologinPython\test\User Data\Default\IndexedDB\https_otispam.secretservercloud.com_0.indexeddb.leveldb/000107.log 
-2021/08/31-08:49:01.891 39f0 Level-0 table #112: started
-2021/08/31-08:49:01.899 39f0 Level-0 table #112: 48700 bytes OK
-2021/08/31-08:49:01.901 39f0 Delete type=0 #107
-2021/08/31-08:49:01.903 39f0 Manual compaction at level-0 from '\x00\x0e\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0f\x00\x00\x00' @ 0 : 0; will stop at '\x00\x0e\x01\x1f\x02\x00\xd0\xf3Qb\xb9wB\x00\x01 \x00b\x00c\x004\x00d\x008\x002\x001\x00e\x002\x002\x008\x001\x004\x005\x007\x00b\x00b\x006\x002\x008\x00c\x006\x00d\x005\x002\x000\x007\x00a\x00d\x001\x00d\x005' @ 13303 : 1
-2021/08/31-08:49:01.904 39f0 Compacting 1@0 + 1@1 files
-2021/08/31-08:49:01.909 39f0 Generated table #113@0: 66 keys, 758 bytes
-2021/08/31-08:49:01.910 39f0 Compacted 1@0 + 1@1 files => 758 bytes
-2021/08/31-08:49:01.911 39f0 compacted to: files[ 0 1 1 0 0 0 0 ]
-2021/08/31-08:49:01.912 39f0 Delete type=2 #112
-2021/08/31-08:49:01.914 39f0 Manual compaction at level-0 from '\x00\x0e\x01\x1f\x02\x00\xd0\xf3Qb\xb9wB\x00\x01 \x00b\x00c\x004\x00d\x008\x002\x001\x00e\x002\x002\x008\x001\x004\x005\x007\x00b\x00b\x006\x002\x008\x00c\x006\x00d\x005\x002\x000\x007\x00a\x00d\x001\x00d\x005' @ 13303 : 1 .. '\x00\x0f\x00\x00\x00' @ 0 : 0; will stop at (end)
+2021/08/31-12:56:46.241 5e78 Reusing MANIFEST C:\Users\A110144146\Desktop\AutologinPython\test\User Data\Default\IndexedDB\https_otispam.secretservercloud.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/08/31-12:56:46.242 5e78 Recovering log #111
+2021/08/31-12:56:46.245 5e78 Reusing old log C:\Users\A110144146\Desktop\AutologinPython\test\User Data\Default\IndexedDB\https_otispam.secretservercloud.com_0.indexeddb.leveldb/000111.log 
+2021/08/31-12:56:46.253 39b8 Level-0 table #116: started
+2021/08/31-12:56:46.257 39b8 Level-0 table #116: 24530 bytes OK
+2021/08/31-12:56:46.258 39b8 Delete type=0 #111
+2021/08/31-12:56:46.259 39b8 Manual compaction at level-0 from '\x00\x0f\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x10\x00\x00\x00' @ 0 : 0; will stop at '\x00\x0f\x01\x1f\x02\x00\x80\xa0t\xb4\xb9wB\x00\x01 \x001\x004\x004\x00f\x00a\x000\x00a\x000\x00d\x004\x00c\x00a\x004\x006\x009\x004\x009\x005\x00b\x007\x00d\x008\x007\x007\x001\x00c\x002\x00e\x00c\x003\x002\x004' @ 14214 : 1
+2021/08/31-12:56:46.259 39b8 Compacting 1@0 + 1@1 files
+2021/08/31-12:56:46.262 39b8 Generated table #117@0: 66 keys, 762 bytes
+2021/08/31-12:56:46.262 39b8 Compacted 1@0 + 1@1 files => 762 bytes
+2021/08/31-12:56:46.263 39b8 compacted to: files[ 0 1 1 0 0 0 0 ]
+2021/08/31-12:56:46.263 39b8 Delete type=2 #116
+2021/08/31-12:56:46.264 39b8 Manual compaction at level-0 from '\x00\x0f\x01\x1f\x02\x00\x80\xa0t\xb4\xb9wB\x00\x01 \x001\x004\x004\x00f\x00a\x000\x00a\x000\x00d\x004\x00c\x00a\x004\x006\x009\x004\x009\x005\x00b\x007\x00d\x008\x007\x007\x001\x00c\x002\x00e\x00c\x003\x002\x004' @ 14214 : 1 .. '\x00\x10\x00\x00\x00' @ 0 : 0; will stop at (end)

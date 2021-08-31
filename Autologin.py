@@ -48,8 +48,8 @@ def main():
         print("[v1.4 11/06/2021  Powershell script now contains option for users with prefix otis.com\ on their accounts.]")
         print("[Explicit wait time raised up to 300 seconds.]")
         print("[v1.5 16.08/2021  Version optimized for nucleus users, option to choose between chrome versions added]")
-        print("[v1.6 31.08/2021  Option to choose chromdriver removed, chromedriver will be automatically downloaded upon current exisitng chrome version")
-
+        print("[v1.6 31.08/2021  Option to choose chromedriver removed, chromedriver will be automatically downloaded upon current exisitng chrome version")
+        time.sleep(3)
       
 
         
